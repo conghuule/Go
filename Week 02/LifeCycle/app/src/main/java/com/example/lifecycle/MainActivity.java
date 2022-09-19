@@ -1,5 +1,6 @@
 package com.example.lifecycle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.app.Activity;
@@ -16,7 +17,7 @@ import android.widget.Toast;
 
 import java.util.Locale;
 
-public class MainActivity extends Activity {
+    public class MainActivity extends AppCompatActivity {
     private Button btnExit;
     private TextView txtChosenColor;
     private EditText edtColor;
@@ -37,7 +38,6 @@ public class MainActivity extends Activity {
         btnExit = findViewById(R.id.btnExit);
         txtChosenColor = findViewById(R.id.txtChosenColor);
         screen = findViewById(R.id.mainScreen);
-
 
         btnExit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,10 +63,8 @@ public class MainActivity extends Activity {
     }
 
     private void setBackgroundColor(String color, ConstraintLayout screen) {
-        // Set background to white
         if (color.isEmpty() || color.contains("default")) screen.setBackgroundColor(0xffffffff);
 
-        // Set background color according to input text
         if (color.contains("tri") || color.contains("20120219")) screen.setBackgroundColor(0xff0277bd);
         if (color.contains("huu") || color.contains("20120294")) screen.setBackgroundColor(0xff00695c);
         if (color.contains("kiet") || color.contains("20120312")) screen.setBackgroundColor(0xfff9a825);
@@ -121,8 +119,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onPause() {
         super.onPause();
-        if (!edtColor.getText().toString().isEmpty())
-            storeColorData();
+        storeColorData();
         Toast.makeText(this, "On Pause", duration).show();
     }
 
