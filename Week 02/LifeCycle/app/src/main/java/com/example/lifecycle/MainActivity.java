@@ -67,11 +67,11 @@ public class MainActivity extends Activity {
         if (color.isEmpty() || color.contains("default")) screen.setBackgroundColor(0xffffffff);
 
         // Set background color according to input text
-        if (color.contains("tri")) screen.setBackgroundColor(0xff120219);
-        if (color.contains("huu")) screen.setBackgroundColor(0xff120294);
-        if (color.contains("kiet")) screen.setBackgroundColor(0xff120312);
-        if (color.contains("luc")) screen.setBackgroundColor(0xff120325);
-        if (color.contains("vu")) screen.setBackgroundColor(0xff120405);
+        if (color.contains("tri") || color.contains("20120219")) screen.setBackgroundColor(0xff0277bd);
+        if (color.contains("huu") || color.contains("20120294")) screen.setBackgroundColor(0xff00695c);
+        if (color.contains("kiet") || color.contains("20120312")) screen.setBackgroundColor(0xfff9a825);
+        if (color.contains("luc") || color.contains("20120325")) screen.setBackgroundColor(0xffd84315);
+        if (color.contains("vu") || color.contains("20120405")) screen.setBackgroundColor(0xff37474f);
     }
 
     private void storeColorData() {
