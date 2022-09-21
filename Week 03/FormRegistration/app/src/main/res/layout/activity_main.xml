@@ -22,14 +22,18 @@
 
             <TextView android:text="Password" />
 
-            <EditText android:layout_span="3" />
+            <EditText
+                android:layout_span="3"
+                android:inputType="textPassword" />
         </TableRow>
 
         <TableRow>
 
             <TextView android:text="Retype" />
 
-            <EditText android:layout_span="3" />
+            <EditText
+                android:layout_span="3"
+                android:inputType="textPassword" />
         </TableRow>
 
         <TableRow>
@@ -41,9 +45,13 @@
 
         <TableRow>
 
-            <EditText android:layout_span="3" />
+            <EditText
+                android:id="@+id/inputDate"
+                android:layout_span="3"
+                android:inputType="date"/>
 
             <Button
+                android:id="@+id/btnSelectDate"
                 android:layout_marginLeft="10dp"
                 android:text="Select" />
         </TableRow>
@@ -59,17 +67,23 @@
             android:gravity="center"
             android:orientation="horizontal">
 
-            <RadioButton
+            <RadioGroup
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp"
-                android:text="Male" />
+                android:orientation="horizontal">
 
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp"
-                android:text="Female" />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:text="Male" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:text="Female" />
+            </RadioGroup>
         </LinearLayout>
 
         <TableRow>
@@ -103,19 +117,21 @@
         </LinearLayout>
 
         <LinearLayout
+            android:layout_marginVertical="50dp"
             android:gravity="center"
-            android:orientation="horizontal"
-            android:layout_marginVertical="50dp">
+            android:orientation="horizontal">
+
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Reset"
-                android:layout_marginHorizontal="10dp"/>
+                android:layout_marginHorizontal="10dp"
+                android:text="Reset" />
+
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sign-up"
-                android:layout_marginHorizontal="10dp"/>
+                android:layout_marginHorizontal="10dp"
+                android:text="Sign-up" />
         </LinearLayout>
     </TableLayout>
 </ScrollView>

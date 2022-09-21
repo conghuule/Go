@@ -68,7 +68,7 @@ import java.util.Locale;
         if (color.contains("tri") || color.contains("20120219")) screen.setBackgroundColor(0xff0277bd);
         if (color.contains("huu") || color.contains("20120294")) screen.setBackgroundColor(0xff00695c);
         if (color.contains("kiet") || color.contains("20120312")) screen.setBackgroundColor(0xfff9a825);
-        if (color.contains("luc") || color.contains("20120325")) screen.setBackgroundColor(0xffd84315);
+        // if (color.contains("luc") || color.contains("20120325")) screen.setBackgroundColor(Integer.parseInt("@colors/luc"));
         if (color.contains("vu") || color.contains("20120405")) screen.setBackgroundColor(0xff37474f);
     }
 
