@@ -1,3 +1,33 @@
 <resources>
     <string name="app_name">FormRegistration</string>
+    <string name="username">Username</string>
+    <string name="input_hint">Input username</string>
+    <string name="password">Password</string>
+    <string name="password_hint">Enter your password</string>
+    <string name="retype_password_hint">Re-enter your password</string>
+    <string name="retype_password">Retype</string>
+    <string name="birthdate">Birthdate</string>
+    <string name="birthday_hint">Enter your birthday</string>
+    <string name="select">Select</string>
+    <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="hobbies">Hobbies</string>
+    <string name="tennis">Tennis</string>
+    <string name="furbal">Furbal</string>
+    <string name="others">Others</string>
+    <string name="reset">Reset</string>
+    <string name="sign_up">Sign-up</string>
+    <string name="register_noti">Your information was registered</string>
+    <string name="username_result_label">Username: </string>
+    <string name="username_info">Undefine</string>
+    <string name="password_result_label">Password: </string>
+    <string name="password_info">*********</string>
+    <string name="birthday_result_label">Birthday:</string>
+    <string name="birthday_info">01/01/2000</string>
+    <string name="gender_result_label">Gender:</string>
+    <string name="gender_info">Male</string>
+    <string name="hobbies_result_label">Hobbies:</string>
+    <string name="hobbies_info">Tennis, Futball</string>
+    <string name="exit">Exit</string>
 </resources>

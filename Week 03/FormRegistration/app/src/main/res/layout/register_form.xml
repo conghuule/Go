@@ -1,82 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".ResultActivity">
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:padding="20dp"
         android:stretchColumns="1">
 
         <TableRow>
 
             <TextView
-                android:layout_marginRight="10dp"
-                android:text="Username" />
+                android:layout_marginEnd="10dp"
+                android:text="@string/username" />
 
-            <EditText android:layout_span="3" />
+            <EditText
+                android:id="@+id/edtUsername"
+                android:layout_span="3"
+                android:autofillHints=""
+                android:hint="@string/input_hint"
+                android:inputType="text" />
         </TableRow>
 
         <TableRow>
 
-            <TextView android:text="Password" />
+            <TextView android:text="@string/password" />
 
-            <EditText android:layout_span="3" />
+            <EditText
+                android:id="@+id/inputPassword"
+                android:layout_span="3"
+                android:autofillHints=""
+                android:hint="@string/password_hint"
+                android:inputType="textPassword" />
         </TableRow>
 
         <TableRow>
 
-            <TextView android:text="Retype" />
+            <TextView android:text="@string/retype_password" />
 
-            <EditText android:layout_span="3" />
+            <EditText
+                android:id="@+id/inputRetype"
+                android:layout_span="3"
+                android:autofillHints=""
+                android:hint="@string/retype_password_hint"
+                android:inputType="textPassword" />
         </TableRow>
 
         <TableRow>
 
             <TextView
                 android:layout_marginTop="10dp"
-                android:text="Birthdate" />
+                android:text="@string/birthdate" />
         </TableRow>
 
         <TableRow>
 
-            <EditText android:layout_span="3" />
+            <EditText
+                android:id="@+id/inputDate"
+                android:layout_span="3"
+                android:autofillHints="01/01/2000"
+                android:hint="@string/birthday_hint"
+                android:inputType="date" />
 
             <Button
-                android:layout_marginLeft="10dp"
-                android:text="Select" />
+                android:id="@+id/btnSelectDate"
+                android:layout_marginStart="10dp"
+                android:text="@string/select" />
         </TableRow>
 
         <TableRow>
 
             <TextView
                 android:layout_marginTop="10dp"
-                android:text="Gender" />
+                android:text="@string/gender" />
         </TableRow>
 
         <LinearLayout
             android:gravity="center"
             android:orientation="horizontal">
 
-            <RadioButton
+            <RadioGroup
+                android:id="@+id/rgGender"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp"
-                android:text="Male" />
+                android:orientation="horizontal">
 
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp"
-                android:text="Female" />
+                <RadioButton
+                    android:id="@+id/rbMale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:text="@string/male" />
+
+                <RadioButton
+                    android:id="@+id/rbFemale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:text="@string/female" />
+            </RadioGroup>
         </LinearLayout>
 
         <TableRow>
 
             <TextView
                 android:layout_marginTop="10dp"
-                android:text="Hobbies" />
+                android:text="@string/hobbies" />
         </TableRow>
 
         <LinearLayout
@@ -84,38 +116,47 @@
             android:orientation="horizontal">
 
             <CheckBox
+                android:id="@+id/cbTennis"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
-                android:text="Tennis" />
+                android:text="@string/tennis" />
 
             <CheckBox
+                android:id="@+id/cbFurbal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
-                android:text="Furbal" />
+                android:text="@string/furbal" />
 
             <CheckBox
+                android:id="@+id/cbOthers"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="10dp"
-                android:text="Others" />
+                android:text="@string/others" />
         </LinearLayout>
 
         <LinearLayout
+            android:layout_marginVertical="50dp"
             android:gravity="center"
-            android:orientation="horizontal"
-            android:layout_marginVertical="50dp">
+            android:orientation="horizontal">
+
             <Button
+                android:id="@+id/btnReset"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Reset"
-                android:layout_marginHorizontal="10dp"/>
+                android:layout_marginHorizontal="10dp"
+                android:text="@string/reset"
+                style="?android:attr/buttonBarButtonStyle" />
+
             <Button
+                android:id="@+id/btnSignUp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sign-up"
-                android:layout_marginHorizontal="10dp"/>
+                android:layout_marginHorizontal="10dp"
+                android:text="@string/sign_up"
+                style="?android:attr/buttonBarButtonStyle" />
         </LinearLayout>
     </TableLayout>
 </ScrollView>

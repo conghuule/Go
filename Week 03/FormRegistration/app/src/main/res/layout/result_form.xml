@@ -1,157 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="wrap_content"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingTop="24dp" android:paddingBottom="16dp" android:paddingLeft="8dp" android:paddingRight="8dp">
+    android:padding="30dp">
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Your information registered"
+        android:text="@string/register_noti"
         android:textColor="@color/black"
-        android:textSize="24dp"
-        android:textStyle="bold"
-        />
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
-<!--    Username-->
+    <!--    Username-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="16dp"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Username: "
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            />
+        android:paddingTop="16dp">
 
         <TextView
-            android:id="@+id/username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nguyen Van A"
+            android:text="@string/username_result_label"
             android:textColor="@color/black"
-            android:textSize="20dp"
-            />
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/resultUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/username_info"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
     </LinearLayout>
 
-<!--    Password-->
+    <!--    Password-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="16dp"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Password: "
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            />
+        android:paddingTop="16dp">
 
         <TextView
-            android:id="@+id/password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/password_result_label"
             android:textColor="@color/black"
-            android:textSize="20dp"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/resultPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/password_info"
             android:inputType="textPassword"
-            android:hint="*********"
+            android:textColor="@color/black"
             android:textColorHint="@color/black"
-            />
+            android:textSize="20sp"
+            tools:ignore="TextViewEdits" />
     </LinearLayout>
 
-<!--    Birthday-->
+    <!--    Birthday-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="16dp"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Birthday: "
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            />
+        android:paddingTop="16dp">
 
         <TextView
-            android:id="@+id/birthday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="22/10/1989"
+            android:text="@string/birthday_result_label"
             android:textColor="@color/black"
-            android:textSize="20dp"
-            />
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/resultBirthdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/birthday_info"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
     </LinearLayout>
 
-<!--    Gender-->
+    <!--    Gender-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="16dp"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Gender: "
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            />
+        android:paddingTop="16dp">
 
         <TextView
-            android:id="@+id/gender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Male"
+            android:text="@string/gender_result_label"
             android:textColor="@color/black"
-            android:textSize="20dp"
-            />
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/resultGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gender_info"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
     </LinearLayout>
 
-<!--    Hobbies-->
+    <!--    Hobbies-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="16dp"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hobbies: "
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            />
+        android:paddingTop="16dp">
 
         <TextView
-            android:id="@+id/hobbies"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tennis, Futball"
+            android:text="@string/hobbies_result_label"
             android:textColor="@color/black"
-            android:textSize="20dp"
-            />
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/resultHobbies"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hobbies_info"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
         android:layout_marginTop="50dp"
-        >
+        android:gravity="center"
+        android:orientation="horizontal">
+
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btnExit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Exit"
-            />
+            android:text="@string/exit" />
     </LinearLayout>
 </LinearLayout>
