@@ -9,8 +9,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="@string/register_noti"
-        android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold" />
 
@@ -22,18 +22,10 @@
         android:paddingTop="16dp">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/username_result_label"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
-
-        <TextView
             android:id="@+id/resultUsername"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/username_info"
-            android:textColor="@color/black"
+            android:text="@string/username_result_label"
             android:textSize="20sp" />
     </LinearLayout>
 
@@ -45,22 +37,11 @@
         android:paddingTop="16dp">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/password_result_label"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
-
-        <TextView
             android:id="@+id/resultPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="@string/password_info"
-            android:inputType="textPassword"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black"
-            android:textSize="20sp"
-            tools:ignore="TextViewEdits" />
+            android:text="@string/password_result_label"
+            android:textSize="20sp" />
     </LinearLayout>
 
     <!--    Birthday-->
@@ -71,18 +52,10 @@
         android:paddingTop="16dp">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/birthday_result_label"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
-
-        <TextView
             android:id="@+id/resultBirthdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/birthday_info"
-            android:textColor="@color/black"
+            android:text="@string/birthday_result_label"
             android:textSize="20sp" />
     </LinearLayout>
 
@@ -94,19 +67,13 @@
         android:paddingTop="16dp">
 
         <TextView
+            android:id="@+id/resultGender"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/gender_result_label"
-            android:textColor="@color/black"
             android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/resultGender"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/gender_info"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
     </LinearLayout>
 
     <!--    Hobbies-->
@@ -117,18 +84,10 @@
         android:paddingTop="16dp">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/hobbies_result_label"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
-
-        <TextView
             android:id="@+id/resultHobbies"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/hobbies_info"
-            android:textColor="@color/black"
+            android:text="@string/hobbies_result_label"
             android:textSize="20sp" />
     </LinearLayout>
 
