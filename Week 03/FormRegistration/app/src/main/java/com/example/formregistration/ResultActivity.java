@@ -29,16 +29,22 @@ public class ResultActivity extends Activity {
         Bundle bundle = data.getExtras();
 
         StringBuilder password = new StringBuilder();
+        password.append(resultPassword.getText().toString());
         int passwordSize = bundle.getString("password").length();
         for (int i = 0; i < passwordSize; ++i) {
             password.append('*');
         }
 
-        resultUsername.setText(bundle.getString("username"));
+        String username = resultUsername.getText().toString() + bundle.getString("username");
+        String birthdate = resultBirthdate.getText().toString() + bundle.getString("birthdate");
+        String gender = resultGender.getText().toString() + bundle.getString("gender");
+        String hobbies = resultHobbies.getText().toString() + bundle.getString("hobbies");
+
+        resultUsername.setText(username);
         resultPassword.setText(password);
-        resultBirthdate.setText(bundle.getString("birthdate"));
-        resultGender.setText(bundle.getString("gender"));
-        resultHobbies.setText(bundle.getString("hobbies"));
+        resultBirthdate.setText(birthdate);
+        resultGender.setText(gender);
+        resultHobbies.setText(hobbies);
     }
 
     @Override

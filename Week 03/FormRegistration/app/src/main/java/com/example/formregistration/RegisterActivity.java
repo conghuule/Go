@@ -1,9 +1,12 @@
 package com.example.formregistration;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -11,7 +14,10 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class RegisterActivity extends Activity {
 
@@ -34,10 +40,81 @@ public class RegisterActivity extends Activity {
         btnPickDate.setOnClickListener(v -> {
             DatePickerDialog datePickerDialog = new DatePickerDialog(RegisterActivity.this, (view, year1, month1, dayOfMonth) -> {
                 month1 += 1;
-                String date = dayOfMonth + "/" + month1 + "/" + year1;
+
+                String dayDisplay = "";
+                String monthDisplay = "";
+
+                dayDisplay = (dayOfMonth < 10) ? String.format("0%s", dayOfMonth) : String.valueOf(dayOfMonth);
+                monthDisplay = (month1 < 10) ? String.format("0%s", month1) : String.valueOf(month1);
+
+                String date = dayDisplay + "/" + monthDisplay + "/" + year1;
                 edtBirthdate.setText(date);
             }, year, month, day);
             datePickerDialog.show();
+        });
+    }
+
+    private void initDateChange() {
+        edtBirthdate.addTextChangedListener(new TextWatcher() {
+            private String current = "";
+            private String ddmmyyyy = "ddmmyyyy";
+            private Calendar cal = Calendar.getInstance();
+
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
+
+            @SuppressLint("DefaultLocale")
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                if (!s.toString().equals(current)) {
+                    String clean = s.toString().replaceAll("[^\\d.]|\\.", "");
+                    String cleanC = current.replaceAll("[^\\d.]|\\.", "");
+
+                    int cl = clean.length();
+                    int sel = cl;
+                    for (int i = 2; i <= cl && i < 6; i += 2) {
+                        sel++;
+                    }
+                    //Fix for pressing delete next to a forward slash
+                    if (clean.equals(cleanC)) sel--;
+
+                    if (clean.length() < 8) {
+                        clean = clean + ddmmyyyy.substring(clean.length());
+                    } else {
+                        //This part makes sure that when we finish entering numbers
+                        //the date is correct, fixing it otherwise
+                        int day = Integer.parseInt(clean.substring(0, 2));
+                        int mon = Integer.parseInt(clean.substring(2, 4));
+                        int year = Integer.parseInt(clean.substring(4, 8));
+
+                        mon = mon < 1 ? 1 : Math.min(mon, 12);
+                        cal.set(Calendar.MONTH, mon - 1);
+                        year = (year < 1900) ? 1900 : Math.min(year, 2100);
+                        cal.set(Calendar.YEAR, year);
+                        // ^ first set year for the line below to work correctly
+                        //with leap years - otherwise, date e.g. 29/02/2012
+                        //would be automatically corrected to 28/02/2012
+
+                        day = Math.min(day, cal.getActualMaximum(Calendar.DATE));
+                        clean = String.format("%02d%02d%02d", day, mon, year);
+                    }
+
+                    clean = String.format("%s/%s/%s", clean.substring(0, 2),
+                            clean.substring(2, 4),
+                            clean.substring(4, 8));
+
+                    sel = Math.max(sel, 0);
+                    current = clean;
+                    edtBirthdate.setText(current);
+                    edtBirthdate.setSelection(Math.min(sel, current.length()));
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
         });
     }
 
@@ -55,6 +132,20 @@ public class RegisterActivity extends Activity {
         });
     }
 
+    boolean isValidDate(String format, String value) {
+        Date date = null;
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat(format);
+            date = sdf.parse(value);
+            if (!value.equals(sdf.format(date))) {
+                date = null;
+            }
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+        }
+        return date != null;
+    }
+
     boolean isValidData() {
 
         if (edtUsername.getText().toString().isEmpty() || edtPassword1.getText().toString().isEmpty() || edtPassword2.getText().toString().isEmpty()) {
@@ -64,6 +155,11 @@ public class RegisterActivity extends Activity {
 
         if (!edtPassword1.getText().toString().equals(edtPassword2.getText().toString())) {
             Toast.makeText(RegisterActivity.this, "Please re-type your password.", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        if (!isValidDate("dd/MM/yyyy", edtBirthdate.getText().toString())) {
+            Toast.makeText(RegisterActivity.this, "Your birthdate is not invalid", Toast.LENGTH_LONG).show();
             return false;
         }
 
@@ -124,6 +220,7 @@ public class RegisterActivity extends Activity {
         cbFurbal = (CheckBox) findViewById(R.id.cbFurbal);
         cbOther = (CheckBox) findViewById(R.id.cbOthers);
 
+        initDateChange();
         initPickDate();
         initReset();
         initSignup();
@@ -137,3 +234,4 @@ public class RegisterActivity extends Activity {
         initComponents();
     }
 }
+
