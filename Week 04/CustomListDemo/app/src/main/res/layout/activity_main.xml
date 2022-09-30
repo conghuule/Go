@@ -8,8 +8,8 @@
         android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="You choose: "
-        android:textSize="24dp"
+        android:text="@string/choose_msg"
+        android:textSize="24sp"
         android:padding="16dp"/>
     <ListView
         android:id="@+id/list"

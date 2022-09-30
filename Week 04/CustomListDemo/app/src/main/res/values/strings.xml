@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Custom List Demo</string>
+    <string name="user_name">Name</string>
+    <string name="user_phone">Phone</string>
+    <string name="img_desc">User avatar</string>
+    <string name="choose_msg">You choose:</string>
 </resources>
