@@ -5,7 +5,8 @@
     android:background="@color/white"
     android:orientation="horizontal"
     android:paddingHorizontal="5dp"
-    android:paddingVertical="20dp">
+    android:paddingVertical="20dp"
+    android:gravity="left">
 
     <ImageView
         android:id="@+id/avatar"

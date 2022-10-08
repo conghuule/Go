@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -44,7 +45,7 @@ public class DetailFragment extends Fragment implements FragmentCallbacks {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstaceState) {
-        LinearLayout detailLayout = (LinearLayout) inflater.inflate(R.layout.activity_detail_fragment, null);
+        ScrollView detailLayout = (ScrollView) inflater.inflate(R.layout.activity_detail_fragment, null);
 
         detailAvatar = detailLayout.findViewById(R.id.detailAvatar);
         detailID = detailLayout.findViewById(R.id.detailID);
