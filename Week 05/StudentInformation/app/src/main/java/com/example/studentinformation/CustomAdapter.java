@@ -25,6 +25,8 @@ public class CustomAdapter extends ArrayAdapter<People> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        if (convertView != null) return convertView;
+
         LayoutInflater inflater = ((Activity) context).getLayoutInflater();
         View row = inflater.inflate(layoutToBeInflated, null);
 

@@ -49,12 +49,12 @@ public class ListFragment extends Fragment implements FragmentCallbacks {
 
     void setActiveItemBg(int position) {
         position -= listView.getFirstVisiblePosition();
-        System.out.println(position);
+
         for (int i = 0; i < listView.getChildCount(); i++) {
             if (i!= position)
                 listView.getChildAt(i).setBackgroundColor(Color.WHITE);
         }
-        main.setTheme(R.style.detailBtn);
+        
         listView.getChildAt(position).setBackgroundColor(Color.parseColor("#FCDADA"));
     }
 
