@@ -42,10 +42,11 @@ public class ListFragment extends Fragment implements FragmentCallbacks {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        peoples = main.peoples;
+
         LinearLayout layout_list = (LinearLayout) inflater.inflate(R.layout.activity_list_fragment, null);
         currentID = layout_list.findViewById(R.id.currentID);
-
-        peoples = main.peoples;
+        currentID.setText(peoples[0].getId());
 
         listView = (ListView) layout_list.findViewById(R.id.list);
         adapter = new CustomAdapter(context, R.layout.custom_row_icon_label, peoples);
@@ -55,7 +56,6 @@ public class ListFragment extends Fragment implements FragmentCallbacks {
 
         listView.setOnItemClickListener((adapterView, view, i, l) -> {
             currentID.setText(peoples[i].getId());
-
             adapter.setCurrentPosition(i);
         });
 

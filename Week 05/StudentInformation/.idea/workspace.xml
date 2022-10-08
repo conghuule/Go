@@ -15,15 +15,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f541e724-e644-480a-8664-e3f090dcd355" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../Week 02/LifeCycle/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Week 02/LifeCycle/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Week 02/LifeCycle/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Week 02/LifeCycle/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Week 02/LifeCycle/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../Week 02/LifeCycle/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Week 02/LifeCycle/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Week 02/LifeCycle/app/src/main/res/layout/activity_main.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/studentinformation/CustomAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/studentinformation/CustomAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/studentinformation/DetailFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/studentinformation/DetailFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/studentinformation/ListFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/studentinformation/ListFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/studentinformation/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/studentinformation/MainActivity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

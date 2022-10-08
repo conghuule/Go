@@ -94,13 +94,12 @@ public class DetailFragment extends Fragment implements FragmentCallbacks {
     public void onMsgFromMainToFragment(int position) {
         currentPosition = position;
 
-        System.out.println(peoples);
-
         detailAvatar.setImageResource(peoples[position].getAvatar());
         detailID.setText(peoples[position].getId());
         detailName.setText(peoples[position].getName());
         detailClass.setText(peoples[position].getClass_name());
         detailAvg.setText(peoples[position].getAvg_point().toString());
+
         updateButton(peoples, position);
     }
 
