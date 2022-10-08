@@ -4,7 +4,8 @@
     android:layout_height="wrap_content"
     android:background="@color/white"
     android:orientation="horizontal"
-    android:padding="10dp">
+    android:paddingHorizontal="5dp"
+    android:paddingVertical="20dp">
 
     <ImageView
         android:id="@+id/avatar"
@@ -26,6 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginVertical="4dp"
             android:text="@string/user_label"
+            android:textColor="@color/black"
             android:textSize="16sp" />
 
     </LinearLayout>

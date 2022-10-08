@@ -14,80 +14,62 @@
         android:src="@drawable/ic_avatar_1" />
 
     <TextView
+        style="@style/detailHeaderText"
+        android:text="MSSV: " />
+
+    <TextView
         android:id="@+id/detailID"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="12dp"
-        android:text="MSSV: "
-        android:textAlignment="viewStart"
-        android:textSize="20sp" />
+        style="@style/detailText" />
+
+    <TextView
+        style="@style/detailHeaderText"
+        android:text="Họ và tên: " />
 
     <TextView
         android:id="@+id/detailName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="12dp"
-        android:text="Họ và tên: "
-        android:textAlignment="viewStart"
-        android:textSize="20sp" />
+        style="@style/detailText" />
+
+    <TextView
+        style="@style/detailHeaderText"
+        android:text="Lớp: " />
 
     <TextView
         android:id="@+id/detailClass"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="12dp"
-        android:text="Lớp: "
-        android:textAlignment="viewStart"
-        android:textSize="20sp" />
+        style="@style/detailText" />
+
+    <TextView
+
+        style="@style/detailHeaderText"
+        android:text="Điểm trung bình: " />
 
     <TextView
         android:id="@+id/detailAvg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="12dp"
-        android:text="Điểm trung bình: "
-        android:textAlignment="viewStart"
-        android:textSize="20sp" />
+        style="@style/detailText" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/btnFirst"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="2dp"
-            android:layout_weight="1"
             android:text="First"
-            android:textSize="10dp" />
+            style="@style/detailBtn"/>
 
         <Button
             android:id="@+id/btnPrevious"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="2dp"
-            android:layout_weight="1"
             android:text="Prev"
-            android:textSize="10dp" />
+            style="@style/detailBtn" />
 
         <Button
             android:id="@+id/btnNext"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="2dp"
-            android:layout_weight="1"
             android:text="Next"
-            android:textSize="10dp" />
+            style="@style/detailBtn" />
 
         <Button
             android:id="@+id/btnLast"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="2dp"
-            android:layout_weight="1"
             android:text="Last"
-            android:textSize="10dp" />
+            style="@style/detailBtn" />
     </LinearLayout>
 </LinearLayout>

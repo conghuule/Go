@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:padding="16dp"
         android:text="@string/CodeLabel"
+        android:textColor="@color/black"
         android:textAlignment="center"
         android:textSize="20sp" />
 

@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -22,9 +23,9 @@ public class ListFragment extends Fragment implements FragmentCallbacks {
     String[] ids = {"20120219", "20120294", "20120312", "20120325", "20120405"};
     String[] names = {"Nguyễn Minh Trí", "Lê Công Hửu", "Lê Tấn Kiệt", "Ngô Thanh Lực", "Nguyễn Long Vũ"};
     String[] class_names = {"20CTT2", "20CTT2", "20CTT2", "20CTT2", "20CTT3"};
-    Float[] avg_points = {Float.valueOf(10), Float.valueOf(10), Float.valueOf(10), Float.valueOf(10), Float.valueOf(9)};
+    Float[] avg_points = {10F, 10F, 10F, 10F, 9.5F};
 
-    Integer[] avatars = {R.drawable.ic_avatar_1, R.drawable.ic_avatar_2, R.drawable.ic_avatar_3, R.drawable.ic_avatar_4, R.drawable.ic_avatar_5};
+    Integer[] avatars = {R.drawable.ic_avatar_1, R.drawable.ic_avatar_2, R.drawable.ic_avatar_3, R.drawable.ic_avatar_4, R.drawable.ic_avatar_5,R.drawable.ic_avatar_1, R.drawable.ic_avatar_2, R.drawable.ic_avatar_3, R.drawable.ic_avatar_4, R.drawable.ic_avatar_5};
     People[] peoples = {
             new People(avatars[0], ids[0], names[0], class_names[0], avg_points[0]),
             new People(avatars[1], ids[1], names[1], class_names[1], avg_points[2]),
@@ -46,6 +47,17 @@ public class ListFragment extends Fragment implements FragmentCallbacks {
         return fragment;
     }
 
+    void setActiveItemBg(int position) {
+        position -= listView.getFirstVisiblePosition();
+        System.out.println(position);
+        for (int i = 0; i < listView.getChildCount(); i++) {
+            if (i!= position)
+                listView.getChildAt(i).setBackgroundColor(Color.WHITE);
+        }
+        main.setTheme(R.style.detailBtn);
+        listView.getChildAt(position).setBackgroundColor(Color.parseColor("#FCDADA"));
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +65,7 @@ public class ListFragment extends Fragment implements FragmentCallbacks {
             context = getActivity();
             main = (MainActivity) getActivity();
         } catch (IllegalStateException e) {
-            throw new IllegalStateException("loiloiloi");
+            throw new IllegalStateException("Error");
         }
     }
 
@@ -73,6 +85,8 @@ public class ListFragment extends Fragment implements FragmentCallbacks {
         listView.setOnItemClickListener((adapterView, view, i, l) -> {
             currentID.setText(peoples[i].getId());
             main.onMsgFromFragToMain("LIST", i);
+
+            setActiveItemBg(i);
         });
 
         return layout_list;
@@ -80,11 +94,7 @@ public class ListFragment extends Fragment implements FragmentCallbacks {
 
     @Override
     public void onMsgFromMainToFragment(int position) {
-        for (int i = 0; i < peoples.length; i++) {
-            if (i!= position)
-                listView.getChildAt(i).setBackgroundColor(Color.WHITE);
-        }
-        listView.getChildAt(position).setBackgroundColor(Color.parseColor("#FCDADA"));
+        setActiveItemBg(position);
         currentID.setText(peoples[position].getId());
     }
 }

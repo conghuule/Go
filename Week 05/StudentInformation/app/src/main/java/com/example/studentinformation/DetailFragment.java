@@ -1,5 +1,6 @@
 package com.example.studentinformation;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,7 +37,7 @@ public class DetailFragment extends Fragment implements FragmentCallbacks {
         super.onCreate(savedInstanceState);
 
         if (!((getActivity()) instanceof MainCallbacks)) {
-            throw new IllegalStateException("loiloiloi");
+            throw new IllegalStateException("Error");
         }
         main = (MainActivity) getActivity();
     }
@@ -92,10 +93,10 @@ public class DetailFragment extends Fragment implements FragmentCallbacks {
     public void onMsgFromMainToFragment(int position) {
         currentPosition = position;
         detailAvatar.setImageResource(peoples[position].getAvatar());
-        detailID.setText(String.format("MSSV: %s", peoples[position].getId()));
-        detailName.setText(String.format("Họ và tên: %s", peoples[position].getName()));
-        detailClass.setText(String.format("Lớp: %s", peoples[position].getClass_name()));
-        detailAvg.setText(String.format("Điểm trung bình: %s", peoples[position].getAvg_point().toString()));
+        detailID.setText(peoples[position].getId());
+        detailName.setText(peoples[position].getName());
+        detailClass.setText(peoples[position].getClass_name());
+        detailAvg.setText(peoples[position].getAvg_point().toString());
         updateButton(peoples, position);
     }
 
