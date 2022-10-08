@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_grey_50">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/detailAvatar"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/user_info_desc"
+            android:src="@drawable/ic_avatar_1" />
+
+        <TextView
+            style="@style/detailHeaderText"
+            android:text="MSSV: " />
+
+        <TextView
+            android:id="@+id/detailID"
+            style="@style/detailText" />
+
+        <TextView
+            style="@style/detailHeaderText"
+            android:text="Họ và tên: " />
+
+        <TextView
+            android:id="@+id/detailName"
+            style="@style/detailText" />
+
+        <TextView
+            style="@style/detailHeaderText"
+            android:text="Lớp: " />
+
+        <TextView
+            android:id="@+id/detailClass"
+            style="@style/detailText" />
+
+        <TextView
+
+            style="@style/detailHeaderText"
+            android:text="Điểm trung bình: " />
+
+        <TextView
+            android:id="@+id/detailAvg"
+            style="@style/detailText" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnFirst"
+                style="@style/detailBtn"
+                android:text="First" />
+
+            <Button
+                android:id="@+id/btnPrevious"
+                style="@style/detailBtn"
+                android:text="Prev" />
+
+            <Button
+                android:id="@+id/btnNext"
+                style="@style/detailBtn"
+                android:text="Next" />
+
+            <Button
+                android:id="@+id/btnLast"
+                style="@style/detailBtn"
+                android:text="Last" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
