@@ -1,39 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/md_grey_50"
     android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/detailAvatar"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:contentDescription="@string/user_info_desc"
+        android:src="@drawable/ic_avatar_1" />
+
     <TextView
         android:id="@+id/detailID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Mã Số"
-        android:textSize="24sp"
-        android:padding="16dp"
-        android:textAlignment="center"/>
+        android:padding="12dp"
+        android:text="MSSV: "
+        android:textAlignment="viewStart"
+        android:textSize="20sp" />
+
     <TextView
         android:id="@+id/detailName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Họ tên: "
-        android:textSize="24sp"
-        android:padding="16dp"
-        android:textAlignment="center"/>
+        android:padding="12dp"
+        android:text="Họ và tên: "
+        android:textAlignment="viewStart"
+        android:textSize="20sp" />
+
     <TextView
         android:id="@+id/detailClass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Lớp:"
-        android:textSize="24sp"
-        android:padding="16dp"
-        android:textAlignment="center"/>
+        android:padding="12dp"
+        android:text="Lớp: "
+        android:textAlignment="viewStart"
+        android:textSize="20sp" />
+
     <TextView
         android:id="@+id/detailAvg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Điểm trung bình:"
-        android:textSize="24sp"
-        android:padding="16dp"
-        android:textAlignment="center"/>
+        android:padding="12dp"
+        android:text="Điểm trung bình: "
+        android:textAlignment="viewStart"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnFirst"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_weight="1"
+            android:text="First"
+            android:textSize="10dp" />
+
+        <Button
+            android:id="@+id/btnPrevious"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_weight="1"
+            android:text="Prev"
+            android:textSize="10dp" />
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_weight="1"
+            android:text="Next"
+            android:textSize="10dp" />
+
+        <Button
+            android:id="@+id/btnLast"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_weight="1"
+            android:text="Last"
+            android:textSize="10dp" />
+    </LinearLayout>
 </LinearLayout>

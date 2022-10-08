@@ -4,16 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:baselineAligned="false">
 
     <FrameLayout
         android:id="@+id/list_fragment"
         android:name="com.example.studentinformation.ListFragment"
-        android:layout_width="0dp"
+        android:layout_width="40dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        tools:layout="@layout/activity_list_fragment"
-        />
+        tools:layout="@layout/activity_list_fragment" />
 
     <FrameLayout
         android:id="@+id/detail_fragment"

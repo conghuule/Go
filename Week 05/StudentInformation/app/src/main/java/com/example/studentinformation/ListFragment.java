@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,12 +13,13 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class ListFragment extends Fragment {
+public class ListFragment extends Fragment implements FragmentCallbacks {
     MainActivity main;
     Context context = null;
     TextView currentID;
+    ListView listView;
 
-    String[] ids = {"20120001", "20120002", "20120003", "20120004", "20120005"};
+    String[] ids = {"20120219", "20120294", "20120312", "20120325", "20120405"};
     String[] names = {"Nguyễn Minh Trí", "Lê Công Hửu", "Lê Tấn Kiệt", "Ngô Thanh Lực", "Nguyễn Long Vũ"};
     String[] class_names = {"20CTT2", "20CTT2", "20CTT2", "20CTT2", "20CTT3"};
     Float[] avg_points = {Float.valueOf(10), Float.valueOf(10), Float.valueOf(10), Float.valueOf(10), Float.valueOf(9)};
@@ -30,6 +32,10 @@ public class ListFragment extends Fragment {
             new People(avatars[3], ids[3], names[3], class_names[3], avg_points[3]),
             new People(avatars[4], ids[4], names[4], class_names[4], avg_points[4]),
     };
+
+    public People[] get_peoples() {
+        return peoples;
+    }
 
     public static ListFragment newInstance(String strArgs) {
         ListFragment fragment = new ListFragment();
@@ -55,11 +61,10 @@ public class ListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         LinearLayout layout_list = (LinearLayout) inflater.inflate(R.layout.activity_list_fragment, null);
 
-        ListView listView = (ListView) layout_list.findViewById(R.id.list);
+        listView = (ListView) layout_list.findViewById(R.id.list);
         CustomAdapter adapter = new CustomAdapter(context, R.layout.custom_row_icon_label, peoples);
 
         currentID = layout_list.findViewById(R.id.currentID);
-
 
         listView.setAdapter(adapter);
         listView.setSelection(0);
@@ -67,9 +72,19 @@ public class ListFragment extends Fragment {
 
         listView.setOnItemClickListener((adapterView, view, i, l) -> {
             currentID.setText(peoples[i].getId());
-            main.onMsgFromFragToMain("LIST", peoples[i]);
+            main.onMsgFromFragToMain("LIST", i);
         });
 
         return layout_list;
+    }
+
+    @Override
+    public void onMsgFromMainToFragment(int position) {
+        for (int i = 0; i < peoples.length; i++) {
+            if (i!= position)
+                listView.getChildAt(i).setBackgroundColor(Color.WHITE);
+        }
+        listView.getChildAt(position).setBackgroundColor(Color.parseColor("#FCDADA"));
+        currentID.setText(peoples[position].getId());
     }
 }
