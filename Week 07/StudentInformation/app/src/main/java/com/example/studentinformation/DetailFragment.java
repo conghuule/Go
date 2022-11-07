@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -45,7 +44,7 @@ public class DetailFragment extends Fragment implements FragmentCallbacks {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        LinearLayout layout_detail = (LinearLayout) inflater.inflate(R.layout.activity_detail_fragment, null);
+        ScrollView layout_detail = (ScrollView) inflater.inflate(R.layout.activity_detail_fragment, null);
         txtStudentID = (TextView) layout_detail.findViewById(R.id.detailID);
         txtName = (TextView) layout_detail.findViewById(R.id.detailName);
         txtClass = (TextView) layout_detail.findViewById(R.id.detailClass);
@@ -108,15 +107,21 @@ public class DetailFragment extends Fragment implements FragmentCallbacks {
     }
 
     public void updateButton(People[] students, int position) {
-        if (position == 0)
+        if (position == 0) {
+            btnFirst.setEnabled(false);
             btnPrevious.setEnabled(false);
-        else
+        } else {
+            btnFirst.setEnabled(true);
             btnPrevious.setEnabled(true);
+        }
 
-        if (position == (students.length - 1))
+        if (position == (peoples.length - 1)) {
+            btnLast.setEnabled(false);
             btnNext.setEnabled(false);
-        else
+        } else {
+            btnLast.setEnabled(true);
             btnNext.setEnabled(true);
+        }
     }
 
     private String findClassNameById(int classID) {

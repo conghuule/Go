@@ -37,12 +37,12 @@ public class MainActivity extends FragmentActivity implements MainCallbacks {
 
     private void buildFragments() {
         ft = getSupportFragmentManager().beginTransaction();
-        listFragment = ListFragment.newInstance("first-list-fragment");
+        listFragment = ListFragment.newInstance("Mobile CQ2022-2");
         ft.replace(R.id.list_fragment, listFragment);
         ft.commit();
 
         ft = getSupportFragmentManager().beginTransaction();
-        detailFragment = DetailFragment.newInstance("first-detail-fragment");
+        detailFragment = DetailFragment.newInstance("Mobile CQ2022-2");
         ft.replace(R.id.detail_fragment, detailFragment);
         ft.commit();
     }

@@ -99,7 +99,6 @@ public class ListFragment extends Fragment implements FragmentCallbacks {
         listView.setAdapter(adapter);
 
         listView.setSelection(0);
-        listView.smoothScrollToPosition(0);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
