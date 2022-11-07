@@ -1,38 +1,59 @@
 package com.example.studentinformation;
 
-class People {
-    Integer avatar;
-    String id;
-    String name;
-    String class_name;
-    Float avg_point;
+public class People {
+    private String peopleID;
+    private String name;
+    private int classID;
 
-    public People(String id, String name, String class_name) {
-//        this.avatar = avatar;
-        this.id = id;
+    public int getClassID() {
+        return classID;
+    }
+
+    public void setClassID(int classID) {
+        this.classID = classID;
+    }
+
+    private float avgScore;
+    private int thumbnailID;
+
+    public People() {}
+
+    public People(String peopleID, String name, int classID, float avgScore) {
+        this.peopleID = peopleID;
         this.name = name;
-        this.class_name = class_name;
-//        this.avg_point = avg_point;
+        this.classID = classID;
+        this.avgScore = avgScore;
     }
 
-//    Integer getAvatar() {
-//        return avatar;
-//    }
-
-    String getId() {
-        return id;
+    public String getPeopleID() {
+        return peopleID;
     }
 
-    String getName() {
+    public void setPeopleID(String peopleID) {
+        this.peopleID = peopleID;
+    }
+
+    public String getName() {
         return name;
     }
 
-    String getClass_name() {
-        return class_name;
+    public void setName(String name) {
+        this.name = name;
     }
 
-//    Float getAvg_point() {
-//        return avg_point;
-//    }
+    public float getAvgScore() {
+        return avgScore;
+    }
 
+    public void setAvgScore(float avgScore) {
+        this.avgScore = avgScore;
+    }
+
+    public int getThumbnailID() {
+        return thumbnailID;
+    }
+
+    public void setThumbnailID(int thumbnailID) {
+        this.thumbnailID = thumbnailID;
+    }
 }

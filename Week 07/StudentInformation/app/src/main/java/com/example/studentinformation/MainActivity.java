@@ -1,53 +1,86 @@
 package com.example.studentinformation;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.Manifest;
 import android.app.Activity;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
-import android.os.Environment;
 import android.util.Log;
 import android.widget.Toast;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends FragmentActivity implements MainCallbacks {
-    SQLiteDatabase db;
     FragmentTransaction ft;
-    ListFragment listFragment;
+    SQLiteDatabase database;
+    String myDatabasePath;
     DetailFragment detailFragment;
+    ListFragment listFragment;
+    People[] peoples;
+    Class[] classes;
 
-    List<People> peoples = new ArrayList<People>();
+    public void setPeoples(People[] _peoples) {
+        peoples = _peoples;
+    }
+
+    public void setClasses(Class[] _classes) {
+        classes = _classes;
+    }
+
+    private void buildFragments() {
+        ft = getSupportFragmentManager().beginTransaction();
+        listFragment = ListFragment.newInstance("first-list-fragment");
+        ft.replace(R.id.list_fragment, listFragment);
+        ft.commit();
+
+        ft = getSupportFragmentManager().beginTransaction();
+        detailFragment = DetailFragment.newInstance("first-detail-fragment");
+        ft.replace(R.id.detail_fragment, detailFragment);
+        ft.commit();
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ft = getSupportFragmentManager().beginTransaction();
-        detailFragment = DetailFragment.newInstance("detail");
-        ft.replace(R.id.detail_fragment, detailFragment);
-        ft.commit();
+        File storagePath = getApplication().getFilesDir();
+        myDatabasePath = storagePath + "/" + "myDatabase";
 
-        ft = getSupportFragmentManager().beginTransaction();
-        listFragment = ListFragment.newInstance("list");
-        ft.replace(R.id.list_fragment, listFragment);
-        ft.commit();
+        ActivityCompat.requestPermissions(MainActivity.this,
+                new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+    }
 
-        try {
-            openDatabase();
-//            insertSomeDbData();
-            useRawQueryShowAll();
-//            dropTable();
-        } catch(Exception e) {
-            Log.e("Error", e.getMessage());
+
+    @Override
+    public void onDestroy() {
+        // Database will stay opened all the time, only close it on app destroy
+        if (database.isOpen()) {
+            database.close();
+        }
+        super.onDestroy();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 1) {
+            // If request is cancelled, the result arrays are empty.
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                createDatabase();
+                buildFragments();
+            } else {
+                Toast.makeText(MainActivity.this, "Permission denied!", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
@@ -67,72 +100,68 @@ public class MainActivity extends FragmentActivity implements MainCallbacks {
                 detailFragment.onMsgFromMainToFragment(position);
             }
             catch (Exception e) {
-                Log.e("ERROR", "onStringFromMainToFrag" + e.getMessage());
+                Log.e("ERROR", "onStringFromFragToMain" + e.getMessage());
             }
         }
     }
 
-    private void openDatabase() {
-        try{
-            File storagePath= getApplication().getFilesDir();
-            String myDbPath= storagePath+ "/"+ "StudentManagement";
-            db = SQLiteDatabase.openDatabase(myDbPath, null, SQLiteDatabase.CREATE_IF_NECESSARY);
-        } catch(SQLiteException e) {
-            Log.e("Error", e.getMessage());
-            finish();
+    private void createDatabase() {
+
+        try {
+            database = SQLiteDatabase.openDatabase(myDatabasePath, null, SQLiteDatabase.CREATE_IF_NECESSARY);
+            createTables();
+            insertTables();
+            queryDatabase();
+            Toast.makeText(MainActivity.this, "Database created successfully", Toast.LENGTH_SHORT).show();
+        }
+        catch (SQLiteException e) {
+            e.printStackTrace();
+        };
+    }
+
+    private void createTables() {
+        try {
+            database.execSQL("DROP TABLE IF EXISTS HOCSINH;");
+            database.execSQL("DROP TABLE IF EXISTS LOPHOC;");
+            database.execSQL("CREATE TABLE HOCSINH ( "
+                    + "STUDENTID TEXT PRIMARY KEY, "
+                    + "NAME TEXT, "
+                    + "CLASSID INTEGER, "
+                    + "AVG FLOAT);");
+            database.execSQL("CREATE TABLE LOPHOC ( "
+                    + "CLASSID INTEGER PRIMARY KEY, "
+                    + "CLASSNAME TEXT);");
+            Toast.makeText(this, "Create Tables Completed", Toast.LENGTH_SHORT).show();
+
+        }
+        catch (SQLiteException e) {
+            e.printStackTrace();
         }
     }
 
-    private void insertSomeDbData() {
-        db.beginTransaction();
-        try{
-            db.execSQL("create table Class(id integer PRIMARY KEY autoincrement, name text);");
-            db.execSQL("create table Student(id text PRIMARY KEY, name text, classID int, FOREIGN KEY (classID) REFERENCES Class(id));");
-            db.setTransactionSuccessful();
-        } catch(SQLException e1) {
-            Log.e("Error", e1.getMessage());
-            finish();
-        } finally{
-            db.endTransaction();
+    private void insertTables() {
+        try {
+            database.execSQL("INSERT INTO LOPHOC VALUES (0, '20_2')");
+            database.execSQL("INSERT INTO HOCSINH VALUES ('20120219','Nguyen Minh Tri',0,10)");
+            database.execSQL("INSERT INTO HOCSINH VALUES ('20120294','Le Cong Huu',0,10)");
+            database.execSQL("INSERT INTO HOCSINH VALUES ('20120312','Le Tan Kiet',0,10)");
+            database.execSQL("INSERT INTO HOCSINH VALUES ('20120325','Ngo Thanh Luc',0,10)");
+            database.execSQL("INSERT INTO HOCSINH VALUES ('20120405','Nguyen Long Vu',0,10)");
         }
-        db.beginTransaction();
-            try{
-            db.execSQL("insert into Class(id, name)" + "values ('2', '20CTT2');");
-            db.execSQL("insert into Class(id, name)" + "values ('3', '20CTT3');");
-
-            db.execSQL("insert into Student(id, name, classID)" + "values ('20120219', 'Nguyễn Minh Trí', '2');");
-            db.execSQL("insert into Student(id, name, classID)" + "values ('20120294', 'Lê Công Hửu', '2');");
-            db.execSQL("insert into Student(id, name, classID)" + "values ('20120312', 'Lê Tấn Kiệt', '2');");
-            db.execSQL("insert into Student(id, name, classID)" + "values ('20120325', 'Ngô Thanh Lực', '2');");
-            db.execSQL("insert into Student(id, name, classID)" + "values ('20120405', 'Nguyễn Long Vũ', '3');");
-
-            db.setTransactionSuccessful();
-        } catch(SQLiteException e2) {
-            Log.e("Error", e2.getMessage());
-        } finally{
-            db.endTransaction();
+        catch (SQLiteException e) {
+            e.printStackTrace();
+        }
+    }
+    private void queryDatabase() {
+        Cursor cursor = database.rawQuery("select count(*) as 'SLSV' from HOCSINH", null);
+        cursor.moveToPosition(-1);
+        while (cursor.moveToNext()) {
+            int count = cursor.getInt(0);
+            Toast.makeText(this, count + " HS", Toast.LENGTH_SHORT).show();
         }
     }
 
-    private void useRawQueryShowAll() {
-        try{
-            Cursor cursor = db.rawQuery("Select s.id, s.name, c.name from Student s Join Class c on s.classID = c.id ", null);
-            cursor.moveToPosition(-1);
-            while(cursor.moveToNext()) {
-                People p = new People(cursor.getString(0), cursor.getString(1), cursor.getString(2));
-                peoples.add(p);
-            }
-        } catch(Exception e) {
-            Log.e("Query Error", e.getMessage());
-        }
+    public SQLiteDatabase getDatabase() {
+        return database;
     }
-    private void dropTable() {
-        try{
-            db.execSQL("drop table Student;");
-            db.execSQL("drop table Class;");
-        } catch(Exception e) {
-            finish();
-        }
-    }
-
 }

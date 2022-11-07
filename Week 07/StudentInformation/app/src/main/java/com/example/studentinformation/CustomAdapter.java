@@ -3,7 +3,6 @@ package com.example.studentinformation;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,52 +10,41 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.List;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 
 public class CustomAdapter extends ArrayAdapter<People> {
-    Context context;
-    int layoutToBeInflated;
-    List<People> peoples;
-    int currentPosition;
+    private final Context context;
+    private final People[] peoples;
 
-    public CustomAdapter(Context context, int layoutToBeInflated, List<People> peoples) {
-        super(context, layoutToBeInflated, peoples);
+    public CustomAdapter(Context context, int resource, People[] peoples) {
+        super(context, resource, peoples);
         this.context = context;
-        this.layoutToBeInflated = layoutToBeInflated;
         this.peoples = peoples;
-        setCurrentPosition(0);
-    }
-
-    public void setCurrentPosition(int currentPosition) {
-        this.currentPosition = currentPosition;
-        ((MainActivity) this.context).onMsgFromFragToMain("LIST", currentPosition);
-        notifyDataSetChanged();
-    }
-
-    private void setBackground(int position, View view) {
-        if (currentPosition == position) view.setBackgroundColor(Color.parseColor("#FCDADA"));
-        else view.setBackgroundColor(Color.WHITE);
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        if (convertView != null) {
-            setBackground(position, convertView);
-            return convertView;
-        }
-
-        LayoutInflater inflater = ((Activity) context).getLayoutInflater();
-        View row = inflater.inflate(layoutToBeInflated, null);
-
-        ImageView avatar = row.findViewById(R.id.avatar);
-        TextView studentID = row.findViewById(R.id.studentID);
-
-        People people = peoples.get(position);
-        studentID.setText(people.getId());
-
-        setBackground(position, row);
-        return (row);
+    public int getCount() {
+        return peoples.length;
     }
 
+    @Nullable
+    @Override
+    public People getItem(int position) {
+        return peoples[position];
+    }
+
+    @NonNull
+    @Override
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        LayoutInflater inflater = ((Activity) context).getLayoutInflater();
+        View view = inflater.inflate(R.layout.custom_row_icon_label, null);
+        TextView txtStudentID = (TextView) view.findViewById(R.id.studentID);
+        ImageView avatar = (ImageView) view.findViewById(R.id.avatar);
+
+        txtStudentID.setText(peoples[position].getPeopleID());
+        avatar.setImageResource(peoples[position].getThumbnailID());
+        return view;
+    }
 }

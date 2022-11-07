@@ -2,6 +2,7 @@ package com.example.studentinformation;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,53 +12,57 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
-import java.util.List;
 
 public class DetailFragment extends Fragment implements FragmentCallbacks {
     MainActivity main;
-    ImageView detailAvatar;
-    TextView detailID;
-    TextView detailName;
-    TextView detailClass;
-    TextView detailAvg;
+    TextView txtStudentID, txtName, txtClass, txtScore;
     Button btnFirst, btnPrevious, btnNext, btnLast;
+    private People[] peoples;
+    private Class[] classes;
     int currentPosition;
-    private List<People> peoples;
 
-    public static DetailFragment newInstance(String strArgs) {
+    public static DetailFragment newInstance(String strArg1) {
         DetailFragment fragment = new DetailFragment();
-        Bundle args = new Bundle();
-        args.putString("strArg1", strArgs);
-        fragment.setArguments(args);
-
+        Bundle bundle = new Bundle();
+        bundle.putString("arg1", strArg1);
+        fragment.setArguments(bundle);
         return fragment;
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (!((getActivity()) instanceof MainCallbacks)) {
-            throw new IllegalStateException("Error");
+        if(!(getActivity() instanceof MainCallbacks)) {
+            throw new IllegalStateException("Activity must implement MainCallbacks");
         }
         main = (MainActivity) getActivity();
     }
 
+    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstaceState) {
-        ScrollView detailLayout = (ScrollView) inflater.inflate(R.layout.activity_detail_fragment, null);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        LinearLayout layout_detail = (LinearLayout) inflater.inflate(R.layout.activity_detail_fragment, null);
+        txtStudentID = (TextView) layout_detail.findViewById(R.id.detailID);
+        txtName = (TextView) layout_detail.findViewById(R.id.detailName);
+        txtClass = (TextView) layout_detail.findViewById(R.id.detailClass);
+        txtScore = (TextView) layout_detail.findViewById(R.id.detailAvg);
 
-        detailAvatar = detailLayout.findViewById(R.id.detailAvatar);
-        detailID = detailLayout.findViewById(R.id.detailID);
-        detailName = detailLayout.findViewById(R.id.detailName);
-        detailClass = detailLayout.findViewById(R.id.detailClass);
-        detailAvg = detailLayout.findViewById(R.id.detailAvg);
+        try {
+            Bundle arguments = getArguments();
+            txtStudentID.setText(arguments.getString("arg1",""));
+        }
+        catch (Exception e) {
+            Log.e("DETAIL BUNDLE ERROR - ","" + e.getMessage());
+        }
 
         peoples = main.peoples;
+        classes = main.classes;
 
-        btnFirst = (Button) detailLayout.findViewById(R.id.btnFirst);
+        btnFirst = (Button) layout_detail.findViewById(R.id.btnFirst);
         btnFirst.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,59 +70,60 @@ public class DetailFragment extends Fragment implements FragmentCallbacks {
             }
         });
 
-        btnPrevious = (Button) detailLayout.findViewById(R.id.btnPrevious);
+        btnPrevious = (Button) layout_detail.findViewById(R.id.btnPrevious);
         btnPrevious.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                main.onMsgFromFragToMain("DETAIL", currentPosition - 1);
+                main.onMsgFromFragToMain("DETAIL", currentPosition-1);
             }
         });
 
-        btnNext = (Button) detailLayout.findViewById(R.id.btnNext);
+        btnNext = (Button) layout_detail.findViewById(R.id.btnNext);
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                main.onMsgFromFragToMain("DETAIL", currentPosition + 1);
+                main.onMsgFromFragToMain("DETAIL", currentPosition+1);
             }
         });
 
-        btnLast = (Button) detailLayout.findViewById(R.id.btnLast);
+        btnLast = (Button) layout_detail.findViewById(R.id.btnLast);
         btnLast.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                main.onMsgFromFragToMain("DETAIL", peoples.size() - 1);
+                main.onMsgFromFragToMain("DETAIL", peoples.length - 1);
             }
         });
 
-        return detailLayout;
+        return layout_detail;
     }
 
     @Override
     public void onMsgFromMainToFragment(int position) {
         currentPosition = position;
-
-        detailID.setText(peoples.get(position).getId());
-        detailName.setText(peoples.get(position).getName());
-        detailClass.setText(peoples.get(position).getClass_name());
-
+        txtStudentID.setText(peoples[position].getPeopleID());
+        txtName.setText(peoples[position].getName());
+        txtClass.setText(findClassNameById(peoples[position].getClassID()));
+        txtScore.setText(Float.toString(peoples[position].getAvgScore()));
         updateButton(peoples, position);
     }
 
-    public void updateButton(List<People> peoples, int position) {
-        if (position == 0) {
-            btnFirst.setEnabled(false);
+    public void updateButton(People[] students, int position) {
+        if (position == 0)
             btnPrevious.setEnabled(false);
-        } else {
-            btnFirst.setEnabled(true);
+        else
             btnPrevious.setEnabled(true);
-        }
 
-        if (position == (peoples.size() - 1)) {
-            btnLast.setEnabled(false);
+        if (position == (students.length - 1))
             btnNext.setEnabled(false);
-        } else {
-            btnLast.setEnabled(true);
+        else
             btnNext.setEnabled(true);
+    }
+
+    private String findClassNameById(int classID) {
+        for (Class c: classes) {
+            if (c.getClassID() == classID)
+                return c.getClassName();
         }
+        return "No Class Found";
     }
 }
