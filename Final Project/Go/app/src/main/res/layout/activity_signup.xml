@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:orientation="vertical"
+            android:paddingVertical="20dp">
+
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="16dp"
+                android:text="Sign Up"
+                android:textSize="48dp"
+                android:textStyle="bold" />
+
+            <fragment
+                android:id="@+id/name_input"
+                android:name="com.company.go.InputLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:label="Full name"
+                app:placeholder="Your name"
+                tools:layout="@layout/fragment_input_label" />
+
+            <fragment
+                android:id="@+id/email_input"
+                android:name="com.company.go.InputLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:label="Email"
+                app:placeholder="Your email"
+                tools:layout="@layout/fragment_input_label" />
+
+            <fragment
+                android:id="@+id/password_input"
+                android:name="com.company.go.InputLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:label="Password"
+                app:placeholder="Your password"
+                app:type="password"
+                tools:layout="@layout/fragment_input_label" />
+
+            <fragment
+                android:id="@+id/confirm_password_input"
+                android:name="com.company.go.InputLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:label="Confirm password"
+                app:placeholder="Re-type password"
+                app:type="password"
+                tools:layout="@layout/fragment_input_label" />
+
+            <Button
+                android:id="@+id/signup_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/rounded_main_btn"
+                android:padding="12dp"
+                android:text="Sign up" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

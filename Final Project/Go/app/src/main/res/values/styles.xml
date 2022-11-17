@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light">
+        <item name="colorPrimary">@color/main_color</item>
+        <item name="android:statusBarColor">@color/main_color</item>
+        <item name="android:textColor">#000</item>
+        <item name="android:textColorPrimary">#fff</item>
+    </style>
+</resources>
