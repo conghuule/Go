@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Trang chủ" />
+    <item
+        android:id="@+id/nearme"
+        android:icon="@drawable/ic_baseline_near_me_24"
+        android:title="Gần tôi" />
+    <item
+        android:id="@+id/manage"
+        android:icon="@drawable/ic_baseline_car_rental_24"
+        android:title="Quản lý" />
+    <item
+        android:id="@+id/account"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="Tài khoản" />
+</menu>

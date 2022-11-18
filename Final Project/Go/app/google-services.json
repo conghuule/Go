@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "217831271845",
+    "project_id": "go-app-c493c",
+    "storage_bucket": "go-app-c493c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:217831271845:android:7c940153a94e9e5c5c8c4c",
+        "android_client_info": {
+          "package_name": "com.company.go"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "217831271845-l5oia5t7bs9tfdp4rif62pkqr4drtun7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9A6pwgbwloty40iluI_A3QFCzlz3wRNU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "217831271845-l5oia5t7bs9tfdp4rif62pkqr4drtun7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
