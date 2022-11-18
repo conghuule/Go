@@ -1,4 +1,4 @@
-package com.company.go;
+package com.company.go.Fragments;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.company.go.R;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -32,7 +33,7 @@ public class InputLabel extends Fragment {
     public void onInflate(@NonNull Context context, @NonNull AttributeSet attrs, @Nullable Bundle savedInstanceState) {
         super.onInflate(context, attrs, savedInstanceState);
 
-        TypedArray a = context.obtainStyledAttributes(attrs,R.styleable.InputLabel);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.InputLabel);
 
         labelText = a.getString(R.styleable.InputLabel_label);
         placeholder = a.getString(R.styleable.InputLabel_placeholder);

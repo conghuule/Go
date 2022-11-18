@@ -1,4 +1,4 @@
-package com.company.go;
+package com.company.go.Activities;
 
 import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 
@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -19,6 +18,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.company.go.Fragments.InputLabel;
+import com.company.go.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;

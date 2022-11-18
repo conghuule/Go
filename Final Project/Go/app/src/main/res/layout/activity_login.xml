@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".Activities.LoginActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -28,7 +28,7 @@
 
             <fragment
                 android:id="@+id/email_input"
-                android:name="com.company.go.InputLabel"
+                android:name="com.company.go.Fragments.InputLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:label="Email"
@@ -37,7 +37,7 @@
 
             <fragment
                 android:id="@+id/password_input"
-                android:name="com.company.go.InputLabel"
+                android:name="com.company.go.Fragments.InputLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:label="Password"
@@ -81,7 +81,7 @@
                     android:textColor="@color/main_color"
                     android:textSize="16dp"
                     android:textStyle="bold"
-                    android:padding="4dp"/>
+                    android:padding="4dp" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

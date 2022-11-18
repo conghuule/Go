@@ -1,10 +1,12 @@
-package com.company.go;
+package com.company.go.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.company.go.R;
 
 public class SplashActivity extends AppCompatActivity {
 

@@ -27,7 +27,7 @@
 
             <fragment
                 android:id="@+id/name_input"
-                android:name="com.company.go.InputLabel"
+                android:name="com.company.go.Fragments.InputLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:label="Full name"
@@ -36,7 +36,7 @@
 
             <fragment
                 android:id="@+id/email_input"
-                android:name="com.company.go.InputLabel"
+                android:name="com.company.go.Fragments.InputLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:label="Email"
@@ -45,7 +45,7 @@
 
             <fragment
                 android:id="@+id/password_input"
-                android:name="com.company.go.InputLabel"
+                android:name="com.company.go.Fragments.InputLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:label="Password"
@@ -55,7 +55,7 @@
 
             <fragment
                 android:id="@+id/confirm_password_input"
-                android:name="com.company.go.InputLabel"
+                android:name="com.company.go.Fragments.InputLabel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:label="Confirm password"
