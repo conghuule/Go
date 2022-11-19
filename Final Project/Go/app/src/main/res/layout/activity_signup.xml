@@ -3,7 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <fragment
+        android:id="@+id/action_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:name="com.company.go.Fragments.ActionBar"
+        tools:layout="@layout/fragment_action_bar"
+        app:title=""
+        app:action=""/>
 
     <ScrollView
         android:layout_width="match_parent"

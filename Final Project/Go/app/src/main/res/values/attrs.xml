@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="InputLabel">
-        <attr name="label" format="string"/>
-        <attr name="placeholder" format="string"/>
+        <attr name="label" format="string" />
+        <attr name="placeholder" format="string" />
         <attr name="type" format="string" />
+    </declare-styleable>
+    <declare-styleable name="ActionBar">
+        <attr name="title" format="string" />
+        <attr name="action" format="string" />
     </declare-styleable>
 </resources>

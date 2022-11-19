@@ -9,7 +9,7 @@
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
         android:gravity="center" android:paddingTop="15dp" android:orientation="vertical">
 
-        <com.mikhaellopez.circularimageview.CircularImageView android:layout_width="110dp"
+        <de.hdodenhof.circleimageview.CircleImageView android:layout_width="110dp"
             android:layout_height="110dp" android:src="@drawable/avatr" />
 
         <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
