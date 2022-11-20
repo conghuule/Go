@@ -68,12 +68,12 @@ public class Card extends Fragment {
         ImageView imageView = view.findViewById(R.id.carImage);
 
         address.setText("Ho Chi Minh");
-        price.setText(car.getPrice().toString());
+        price.setText(car.getPriceFormat());
         type.setText(car.getInformation().get("type").toString());
         model.setText(car.getInformation().get("model").toString());
         brand.setText( car.getInformation().get("brand").toString());
         capacity.setText( car.getInformation().get("capacity").toString() + " Seats");
         fuelType.setText( car.getInformation().get("fuel_type").toString());
-        Picasso.get().load(car.getImage()).resize(200, 100).into(imageView);
+        Picasso.get().load(car.getAvatar()).resize(200, 100).into(imageView);
     }
 }

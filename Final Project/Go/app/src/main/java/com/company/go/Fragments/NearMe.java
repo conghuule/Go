@@ -159,8 +159,10 @@ public class NearMe extends Fragment implements OnMapReadyCallback {
                                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                     if (task.isSuccessful()) {
                                         DocumentSnapshot document = task.getResult();
+                                        Car car = document.toObject(Car.class);
+                                        Log.d("ahihi", car.getAvatar());
                                         if (document.exists()) {
-                                            Card card = Card.newInstance(new Car(document));
+                                            Card card = Card.newInstance(car);
                                             getChildFragmentManager()
                                                     .beginTransaction()
                                                     .replace(R.id.card_data, card)

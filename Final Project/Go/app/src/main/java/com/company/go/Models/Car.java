@@ -4,10 +4,14 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.GeoPoint;
 
 import java.io.Serializable;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.NumberFormat;
 import java.util.HashMap;
+import java.util.Locale;
 
 public class Car implements Serializable {
-    private String image;
+    private String avatar;
     private GeoPoint address;
     private Integer id;
     private HashMap<String, Object> information;
@@ -17,15 +21,8 @@ public class Car implements Serializable {
     private HashMap<String, Object> registration_certificate;
     private String status;
 
-    public Car(DocumentSnapshot document) {
-        image = document.getString("avatar");
-        address = document.getGeoPoint("address");
-        id = document.getLong("id").intValue();
-        information = (HashMap<String, Object>) document.getData().get("information");
-        owner_id = document.getLong("owner_id").intValue();
-        plate_number= document.getString("plate_number");
-        price = document.getLong("price").intValue();
-        registration_certificate = (HashMap<String, Object>) document.getData().get("registration_certificate");
+    public Car() {
+
     }
 
     public GeoPoint getAddress() {
@@ -52,8 +49,8 @@ public class Car implements Serializable {
         return price;
     }
 
-    public String getImage() {
-        return image;
+    public String getAvatar() {
+        return avatar;
     }
 
     public String getPlate_number() {
@@ -62,5 +59,15 @@ public class Car implements Serializable {
 
     public String getStatus() {
         return status;
+    }
+
+    public String getPriceFormat() {
+        DecimalFormat formatter = (DecimalFormat) NumberFormat.getInstance(Locale.US);
+        DecimalFormatSymbols symbols = formatter.getDecimalFormatSymbols();
+
+        symbols.setGroupingSeparator('.');
+        formatter.setDecimalFormatSymbols(symbols);
+
+        return formatter.format(price.longValue());
     }
 }
