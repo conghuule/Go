@@ -154,13 +154,11 @@ public class NearMe extends Fragment implements OnMapReadyCallback {
                             .document(id)
                             .get()
                             .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                                @SuppressLint("ResourceType")
                                 @Override
                                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                     if (task.isSuccessful()) {
                                         DocumentSnapshot document = task.getResult();
                                         Car car = document.toObject(Car.class);
-                                        Log.d("ahihi", car.getAvatar());
                                         if (document.exists()) {
                                             Card card = Card.newInstance(car);
                                             getChildFragmentManager()
@@ -288,11 +286,14 @@ public class NearMe extends Fragment implements OnMapReadyCallback {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                GeoPoint address = (GeoPoint) document.getGeoPoint("address");
-                                int id = document.getLong("id").intValue();
+                                Car car = document.toObject(Car.class);
+
+                                String carModel = car.getInformation().get("model").toString();
+                                GeoPoint address = (GeoPoint) car.getLocation().get("address");
+
                                 LatLng pos = new LatLng(address.getLatitude(), address.getLongitude());
 
-                                Marker carMarker = addMarker(pos, String.valueOf(id), R.drawable.bmw_logo, 100, 100);
+                                Marker carMarker = addMarker(pos, carModel, R.drawable.bmw_logo, 100, 100);
                                 carMarker.setTag(document.getId());
                             }
                         } else {

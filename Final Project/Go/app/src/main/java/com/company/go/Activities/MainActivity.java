@@ -25,6 +25,10 @@ import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
+    public Integer HOME = R.id.home;
+    public Integer NEAR_ME = R.id.nearme;
+    public Integer ACCOUNT = R.id.account;
+    public Integer MANAGE = R.id.manage;
     private BottomNavigationView bottomNavigationView;
     private FirebaseAuth auth;
     FragmentManager fm;
@@ -60,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation);
 
+//        bottomNavigationView.setSelectedItemId(MANAGE);
+
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -88,6 +94,18 @@ public class MainActivity extends AppCompatActivity {
     private void switchFragment(Fragment newFragment) {
         ft = fm.beginTransaction();
         ft.replace(R.id.content, newFragment);
+//        ft.addToBackStack(null);
         ft.commit();
+//
+//        fm.addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
+//            @Override
+//            public void onBackStackChanged() {
+//                // pop all the fragment and remove the listener
+//                fm.popBackStack(FRAGMENT_OTHER, 1);
+//                fm.removeOnBackStackChangedListener(this);
+//                // set the home button selected
+//                navigation.getMenu().getItem(0).setChecked(true);
+//            }
+//        });
     }
 }
