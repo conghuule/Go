@@ -40,7 +40,8 @@ public class profileActivity extends Activity {
             @Override
             public void onClick(View view) {
                 Intent myIntent_Profile2Main = new Intent(profileActivity.this, mainScreen.getClass());
-                startActivityForResult(myIntent_Profile2Main, 0);
+                startActivity(myIntent_Profile2Main);
+                finish();
             }
         });
 
@@ -48,7 +49,8 @@ public class profileActivity extends Activity {
             @Override
             public void onClick(View view) {
                 Intent myIntent_Profile2Login = new Intent(profileActivity.this, loginScreen.getClass());
-                startActivityForResult(myIntent_Profile2Login, 0);
+                startActivity(myIntent_Profile2Login);
+                finish();
             }
         });
         
@@ -56,7 +58,8 @@ public class profileActivity extends Activity {
             @Override
             public void onClick(View view) {
                 Intent myIntent_Profile2EditPro = new Intent(profileActivity.this, editProfileScreen.getClass());
-                startActivityForResult(myIntent_Profile2EditPro, 0);
+                startActivity(myIntent_Profile2EditPro);
+                finish();
             }
         });
 
@@ -64,7 +67,8 @@ public class profileActivity extends Activity {
             @Override
             public void onClick(View view) {
                 Intent myIntent_Profile2EditPass = new Intent(profileActivity.this, editPassScreen.getClass());
-                startActivityForResult(myIntent_Profile2EditPass, 0);
+                startActivity(myIntent_Profile2EditPass);
+                finish();
             }
         });
     }
