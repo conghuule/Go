@@ -87,7 +87,7 @@
 
                 <ImageView
                     android:id="@+id/carImage"
-                    android:layout_width="200dp"
+                    android:layout_width="175dp"
                     android:layout_height="100dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
