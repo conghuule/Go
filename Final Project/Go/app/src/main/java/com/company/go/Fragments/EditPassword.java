@@ -16,6 +16,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import com.company.go.Activities.LoginActivity;
+import com.company.go.Activities.MainActivity;
 import com.company.go.Models.Car;
 import com.company.go.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -82,7 +83,7 @@ public class EditPassword extends Fragment {
 //                });
 
 
-        ImageView btnBack = view.findViewById(R.id.btnBack);
+        ImageView btnBack = (ImageView) view.findViewById(R.id.btnBack);
         TextView btnLogout = view.findViewById(R.id.btnLogout);
         LinearLayout btnSave = view.findViewById(R.id.btnSave);
         ConstraintLayout mainScreen = view.findViewById(R.id.fragment_home);
@@ -92,16 +93,14 @@ public class EditPassword extends Fragment {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getActivity().onBackPressed();
+                Intent myIntent_Profile2Login = new Intent(getActivity(), MainActivity.class);
+                startActivity(myIntent_Profile2Login);
             }
         });
 
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                auth.signOut();
-//                Intent myIntent_Profile2Login = new Intent(getActivity(), LoginActivity.class);
-//                startActivity(myIntent_Profile2Login);
                 auth.signOut();
                 Intent myIntent_Profile2Login = new Intent(getActivity(), LoginActivity.class);
                 startActivity(myIntent_Profile2Login);

@@ -98,9 +98,8 @@ public class Account extends Fragment {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent myIntent_Profile2Main = new Intent(getActivity(), Main);
-//                startActivity(myIntent_Profile2Main);
-                getActivity().onBackPressed();
+                Intent myIntent_Profile2Login = new Intent(getActivity(), MainActivity.class);
+                startActivity(myIntent_Profile2Login);
             }
         });
 

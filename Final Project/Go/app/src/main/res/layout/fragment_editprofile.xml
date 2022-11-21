@@ -72,7 +72,8 @@
                     android:text="First Name"
                     android:textColor="@color/black"
                     android:textSize="20dp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                   />
 
                 <EditText
                     android:id="@+id/edtFirstName"
@@ -81,7 +82,9 @@
                     android:layout_marginLeft="25dp"
                     android:hint="@string/Enter_your_First_Name"
                     android:inputType="textCapWords|textAutoCorrect"
-                    android:textSize="18dp" />
+                    android:textSize="14dp"
+                    android:textColor="@color/black"
+                    android:background="@android:color/transparent"/>
 
             </LinearLayout>
 
@@ -123,7 +126,9 @@
                     android:layout_marginLeft="26dp"
                     android:hint="@string/Enter_your_Last_Name"
                     android:inputType="textCapWords|textAutoCorrect"
-                    android:textSize="18dp" />
+                    android:textSize="14dp"
+                    android:textColor="@color/black"
+                    android:background="@android:color/transparent" />
 
             </LinearLayout>
 
@@ -165,7 +170,9 @@
                     android:layout_marginLeft="73dp"
                     android:hint="@string/Enter_your_Email"
                     android:inputType="textCapWords|textAutoCorrect"
-                    android:textSize="18dp" />
+                    android:textSize="14dp"
+                    android:textColor="@color/black"
+                    android:background="@android:color/transparent" />
 
             </LinearLayout>
 
@@ -207,7 +214,9 @@
                     android:layout_marginLeft="66dp"
                     android:hint="@string/Enter_your_Phone"
                     android:inputType="textCapWords|textAutoCorrect"
-                    android:textSize="18dp" />
+                    android:textSize="14dp"
+                    android:textColor="@color/black"
+                    android:background="@android:color/transparent" />
 
             </LinearLayout>
 
@@ -249,7 +258,9 @@
                     android:layout_marginLeft="48dp"
                     android:hint="@string/Enter_your_Address"
                     android:inputType="textCapWords|textAutoCorrect"
-                    android:textSize="18dp" />
+                    android:textSize="14dp"
+                    android:textColor="@color/black"
+                    android:background="@android:color/transparent" />
 
             </LinearLayout>
 
@@ -279,14 +290,14 @@
                 android:textColor="@android:color/darker_gray" android:textSize="15dp" />
 
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:gravity="center" android:orientation="vertical" android:paddingTop="5dp">
+                android:gravity="center_horizontal" android:orientation="vertical" android:paddingTop="5dp">
 
-                <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent">
+                <RelativeLayout android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center_horizontal">
 
                     <ImageView
                         android:layout_width="300dp" android:layout_height="150dp"
-                        android:layout_marginLeft="55dp" android:adjustViewBounds="true"
-                        android:cropToPadding="false" android:src="@drawable/card" />
+                        android:adjustViewBounds="true"
+                        android:cropToPadding="false" android:src="@drawable/card"/>
 
                     <ImageView
                         android:id="@+id/btnCamera1"
@@ -307,12 +318,11 @@
                 android:gravity="center" android:orientation="vertical" android:paddingTop="5dp">
 
                 <RelativeLayout
-                    android:layout_width="match_parent" android:layout_height="match_parent">
+                    android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center_horizontal">
 
                     <ImageView
                         android:layout_width="300dp"
                         android:layout_height="150dp"
-                        android:layout_marginLeft="55dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/card" />
 
@@ -371,12 +381,11 @@
                 <RelativeLayout
                     xmlns:android="http://schemas.android.com/apk/res/android"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent" android:gravity="center_horizontal">
 
                     <ImageView
                         android:layout_width="300dp"
                         android:layout_height="150dp"
-                        android:layout_marginLeft="55dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/card" />
 
@@ -413,12 +422,11 @@
 
                 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent" android:gravity="center_horizontal">
 
                     <ImageView
                         android:layout_width="300dp"
                         android:layout_height="150dp"
-                        android:layout_marginLeft="55dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/card" />
 

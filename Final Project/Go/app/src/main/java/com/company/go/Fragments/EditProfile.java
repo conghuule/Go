@@ -16,6 +16,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.company.go.Activities.LoginActivity;
+import com.company.go.Activities.MainActivity;
 import com.company.go.Models.Car;
 import com.company.go.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -91,9 +92,9 @@ public class EditProfile extends Fragment {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent myIntent_editProfile12Profile = new Intent(getActivity(), profileScreen.getClass());
-//                startActivity(myIntent_editProfile12Profile);
-                getActivity().onBackPressed();
+//                getActivity().onBackPressed();
+                Intent myIntent_Profile2Login = new Intent(getActivity(), MainActivity.class);
+                startActivity(myIntent_Profile2Login);
             }
         });
 
