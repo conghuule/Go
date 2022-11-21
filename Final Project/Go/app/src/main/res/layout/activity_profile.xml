@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Activities.MainActivity">
+    tools:context=".Activities.profileActivity">
 
     <include layout="@layout/toolbar" />
 
@@ -12,62 +12,60 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:orientation="vertical"
-        android:paddingTop="5dp">
+        android:paddingTop="15dp"
+        android:orientation="vertical">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="110dp"
             android:layout_height="110dp"
-            android:src="@drawable/avatr"
-            tools:ignore="MissingClass" />
+            android:src="@drawable/avatr"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:text="Tristian Nguyen"
             android:textColor="#0F97A9"
             android:textSize="20dp"
+            android:layout_marginTop="8dp"
             android:textStyle="bold" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginTop="10dp"
-            android:background="#0F97A9" />
+            android:background="#0F97A9"
+            android:layout_marginTop="10dp"/>
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingLeft="15dp"
-        android:paddingRight="15dp">
+        android:paddingRight="15dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical">
 
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/ic_person" />
+            android:src="@drawable/ic_person"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
             android:text="First Name"
+            android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:layout_marginLeft="5dp" />
 
-        <EditText
-            android:id="@+id/edtFirstName"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
-            android:hint="@string/Enter_your_First_Name"
-            android:inputType="textCapWords|textAutoCorrect"
+            android:text="Tristian"
+            android:textColor="@android:color/darker_gray"
             android:textSize="18dp" />
 
     </LinearLayout>
@@ -75,41 +73,40 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:layout_marginLeft="15dp"
+        android:background="@android:color/darker_gray"
         android:layout_marginTop="10dp"
         android:layout_marginRight="15dp"
-        android:background="@android:color/darker_gray" />
+        android:layout_marginLeft="15dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingLeft="15dp"
-        android:paddingRight="15dp">
+        android:paddingRight="15dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical">
 
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/ic_person" />
+            android:src="@drawable/ic_person"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
             android:text="Last Name"
+            android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:layout_marginLeft="5dp" />
 
-        <EditText
-            android:id="@+id/edtLastName"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="26dp"
-            android:hint="@string/Enter_your_Last_Name"
-            android:inputType="textCapWords|textAutoCorrect"
+            android:text="Nguyen"
+            android:textColor="@android:color/darker_gray"
             android:textSize="18dp" />
 
     </LinearLayout>
@@ -117,83 +114,40 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:layout_marginLeft="15dp"
+        android:background="@android:color/darker_gray"
         android:layout_marginTop="10dp"
         android:layout_marginRight="15dp"
-        android:background="@android:color/darker_gray" />
+        android:layout_marginLeft="15dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingLeft="15dp"
-        android:paddingRight="15dp">
+        android:paddingRight="15dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical">
 
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/ic_email" />
+            android:src="@drawable/ic_phone"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:text="Email"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/edtEmailName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="73dp"
-            android:hint="@string/Enter_your_Email"
-            android:inputType="textCapWords|textAutoCorrect"
-            android:textSize="18dp" />
-
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="15dp"
-        android:background="@android:color/darker_gray" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp">
-
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/ic_phone" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
             android:text="Phone"
+            android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:layout_marginLeft="5dp" />
 
-        <EditText
-            android:id="@+id/edtPhone"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="66dp"
-            android:hint="@string/Enter_your_Phone"
-            android:inputType="textCapWords|textAutoCorrect"
+            android:text="0123456789"
+            android:textColor="@android:color/darker_gray"
             android:textSize="18dp" />
 
     </LinearLayout>
@@ -201,41 +155,40 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:layout_marginLeft="15dp"
+        android:background="@android:color/darker_gray"
         android:layout_marginTop="10dp"
         android:layout_marginRight="15dp"
-        android:background="@android:color/darker_gray" />
+        android:layout_marginLeft="15dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingLeft="15dp"
-        android:paddingRight="15dp">
+        android:paddingRight="15dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical">
 
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/ic_home" />
+            android:src="@drawable/ic_email"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:text="Address"
+            android:text="Email"
+            android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="20dp"
-            android:textStyle="bold" />
+            android:layout_marginLeft="5dp" />
 
-        <EditText
-            android:id="@+id/edtAddress"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="48dp"
-            android:hint="@string/Enter_your_Address"
-            android:inputType="textCapWords|textAutoCorrect"
+            android:layout_marginLeft="73dp"
+            android:text="tristian@gmail.com"
+            android:textColor="@android:color/darker_gray"
             android:textSize="18dp" />
 
     </LinearLayout>
@@ -243,30 +196,52 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:layout_marginLeft="15dp"
+        android:background="@android:color/darker_gray"
         android:layout_marginTop="10dp"
         android:layout_marginRight="15dp"
-        android:background="@android:color/darker_gray" />
-
+        android:layout_marginLeft="15dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="15dp"
         android:gravity="center"
         android:orientation="vertical">
 
         <TextView
-            android:layout_width="180dp"
+            android:layout_width="150dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="-10dp"
             android:background="@drawable/bg_btn"
-            android:drawableLeft="@drawable/ic_save"
+            android:text="Edit Profile"
             android:gravity="center"
-            android:paddingLeft="20dp"
-            android:text="Save"
             android:textColor="#0F97A9"
-            android:textSize="18dp" />
+            android:textSize="18dp"
+            android:drawableLeft="@drawable/ic_edit"
+            android:paddingLeft="15dp"
+            android:layout_marginLeft="-10dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:background="@drawable/bg_btn"
+            android:text="Edit Password"
+            android:gravity="center"
+            android:textColor="#0F97A9"
+            android:textSize="18dp"
+            android:drawableLeft="@drawable/ic_lock"
+            android:paddingLeft="15dp"
+            android:layout_marginLeft="-10dp"
+            />
 
     </LinearLayout>
 
