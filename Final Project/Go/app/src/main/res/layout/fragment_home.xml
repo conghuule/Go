@@ -21,13 +21,15 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp"
+                android:layout_marginHorizontal="10dp">
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginRight="10dp"
-                    android:src="@drawable/avatr" />
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/avatar" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -38,6 +40,8 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:id="@+id/fullname"
+                        android:textSize="20dp"
                         android:text="Tristian Nguyen"
                         android:textStyle="bold" />
 
@@ -49,10 +53,11 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
+                android:layout_marginHorizontal="10dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -62,9 +67,15 @@
                     android:background="@drawable/searchview_background"
                     android:iconifiedByDefault="false"
                     android:queryHint="Search"
-
                     />
-            </LinearLayout>
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/filter"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="25dp"/>
+            </RelativeLayout>
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -90,6 +101,7 @@
                         android:layout_weight="1"
                         android:gravity="left"
                         android:text="Brand"
+                        android:textSize="18dp"
                         android:textColor="#ff000000"
                         android:textStyle="bold" />
 
@@ -99,7 +111,8 @@
                         android:gravity="right"
                         android:paddingLeft="20dp"
                         android:text="See all"
-                        android:textColor="#ff000000"
+
+                        android:textColor="#ff26CBE1"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -163,6 +176,7 @@
                         android:layout_weight="1"
                         android:gravity="left"
                         android:text="Recommended"
+                        android:textSize="18dp"
                         android:textColor="#ff000000"
                         android:textStyle="bold" />
 
@@ -172,7 +186,7 @@
                         android:gravity="right"
                         android:paddingLeft="20dp"
                         android:text="See all"
-                        android:textColor="#ff000000"
+                        android:textColor="#ff26CBE1"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -194,6 +208,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_alignParentTop="true"
+
                             android:layout_marginBottom="5dp">
 
                             <LinearLayout
@@ -346,6 +361,7 @@
                         android:layout_weight="1"
                         android:gravity="left"
                         android:text="Near by"
+                        android:textSize="18dp"
                         android:textColor="#ff000000"
                         android:textStyle="bold" />
 
@@ -355,7 +371,7 @@
                         android:gravity="right"
                         android:paddingLeft="20dp"
                         android:text="See all"
-                        android:textColor="#ff000000"
+                        android:textColor="#ff26CBE1"
                         android:textStyle="bold" />
                 </LinearLayout>
 
