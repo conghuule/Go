@@ -12,7 +12,7 @@ import java.util.Locale;
 
 public class Car implements Serializable {
     private String avatar;
-    private GeoPoint address;
+    private HashMap<String, Object> location;
     private Integer id;
     private HashMap<String, Object> information;
     private Integer owner_id;
@@ -25,8 +25,8 @@ public class Car implements Serializable {
 
     }
 
-    public GeoPoint getAddress() {
-        return address;
+    public HashMap<String, Object> getLocation() {
+        return location;
     }
 
     public HashMap<String, Object> getInformation() {

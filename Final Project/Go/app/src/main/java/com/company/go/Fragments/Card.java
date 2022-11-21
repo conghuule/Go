@@ -1,18 +1,22 @@
 package com.company.go.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.company.go.Activities.DetailCar;
 import com.company.go.Models.Car;
 import com.company.go.R;
 import com.squareup.picasso.Picasso;
@@ -58,6 +62,8 @@ public class Card extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        Button goBtn = view.findViewById(R.id.go_btn);
+
         TextView address = view.findViewById(R.id.address);
         TextView model = view.findViewById(R.id.model);
         TextView brand = view.findViewById(R.id.brand);
@@ -67,13 +73,21 @@ public class Card extends Fragment {
         TextView fuelType = view.findViewById(R.id.fuel_type);
         ImageView imageView = view.findViewById(R.id.carImage);
 
-        address.setText("Ho Chi Minh");
+        address.setText(car.getLocation().get("name").toString());
         price.setText(car.getPriceFormat());
         type.setText(car.getInformation().get("type").toString());
         model.setText(car.getInformation().get("model").toString());
         brand.setText( car.getInformation().get("brand").toString());
         capacity.setText( car.getInformation().get("capacity").toString() + " Seats");
         fuelType.setText( car.getInformation().get("fuel_type").toString());
-        Picasso.get().load(car.getAvatar()).resize(200, 100).into(imageView);
+        Picasso.get().load(car.getAvatar()).resize(175, 100).into(imageView);
+
+        goBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().startActivity(new Intent(getActivity(), DetailCar.class));
+//                getActivity().finish();
+            }
+        });
     }
 }
