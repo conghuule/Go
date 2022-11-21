@@ -19,7 +19,6 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBKnZlHV9MedSZ1hqcZrRDl78td4dVLHNA" />
-
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
@@ -37,7 +36,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".Activities.SignupActivity"
             android:exported="false">
@@ -45,7 +43,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Activities.LoginActivity" />
         </activity>
-
         <activity
             android:name=".Activities.LoginActivity"
             android:exported="false">
@@ -53,7 +50,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".Activities.CompletedActivity"
             android:exported="false">
@@ -61,7 +57,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".Activities.MainActivity"
             android:exported="false">
@@ -69,7 +64,13 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
+        <activity
+            android:name=".Activities.DetailCar"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
     </application>
 
 </manifest>

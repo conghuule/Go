@@ -7,6 +7,7 @@
     tools:context=".Fragments.Card">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/card_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -149,6 +150,7 @@
                 </LinearLayout>
 
                 <Button
+                    android:id="@+id/go_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="45dp"
                     android:layout_alignParentEnd="true"
