@@ -44,7 +44,7 @@ public class profileActivity extends Activity {
             }
         });
 
-        btnBack.setOnClickListener(new View.OnClickListener() {
+        btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent myIntent_Profile2Login = new Intent(profileActivity.this, loginScreen.getClass());
