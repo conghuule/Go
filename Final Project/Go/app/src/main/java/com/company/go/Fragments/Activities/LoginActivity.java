@@ -1,4 +1,4 @@
-package com.company.go.Activities;
+package com.company.go.Fragments.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

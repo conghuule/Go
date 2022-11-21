@@ -7,7 +7,7 @@
     android:layout_marginHorizontal="16dp"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".Activities.CompletedActivity">
+    tools:context=".Fragments.Activities.CompletedActivity">
 
     <TextView
         android:layout_width="wrap_content"

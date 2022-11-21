@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:visibility="visible"
     app:circularflow_radiusInDP="10"
-    tools:context=".Activities.MainActivity">
+    tools:context=".Fragments.Activities.MainActivity">
 
     <include layout="@layout/toolbar" />
 

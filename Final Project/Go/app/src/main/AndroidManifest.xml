@@ -25,7 +25,7 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".Activities.SplashActivity"
+            android:name=".Fragments.Activities.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,15 +39,15 @@
         </activity>
 
         <activity
-            android:name=".Activities.SignupActivity"
+            android:name=".Fragments.Activities.SignupActivity"
             android:exported="false">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activities.LoginActivity" />
+                android:value=".Fragments.Activities.LoginActivity" />
         </activity>
 
         <activity
-            android:name=".Activities.LoginActivity"
+            android:name=".Fragments.Activities.LoginActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -55,7 +55,7 @@
         </activity>
 
         <activity
-            android:name=".Activities.CompletedActivity"
+            android:name=".Fragments.Activities.CompletedActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -63,7 +63,7 @@
         </activity>
 
         <activity
-            android:name=".Activities.MainActivity"
+            android:name=".Fragments.Activities.MainActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

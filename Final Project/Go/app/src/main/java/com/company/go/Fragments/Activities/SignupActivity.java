@@ -1,4 +1,4 @@
-package com.company.go.Activities;
+package com.company.go.Fragments.Activities;
 
 import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 
