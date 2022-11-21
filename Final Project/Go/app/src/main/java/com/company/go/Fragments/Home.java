@@ -58,6 +58,8 @@ public class Home extends Fragment {
                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (getContext() == null) return ;
+
                         if (task.isSuccessful()) {
                             DocumentSnapshot document = task.getResult();
                             Car car = document.toObject(Car.class);

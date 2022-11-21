@@ -1,8 +1,5 @@
 package com.company.go.Models;
 
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.GeoPoint;
-
 import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -21,9 +18,7 @@ public class Car implements Serializable {
     private HashMap<String, Object> registration_certificate;
     private String status;
 
-    public Car() {
-
-    }
+    public Car() {}
 
     public HashMap<String, Object> getLocation() {
         return location;

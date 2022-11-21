@@ -59,11 +59,14 @@ import com.google.firebase.firestore.GeoPoint;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.Objects;
+
 public class NearMe extends Fragment implements OnMapReadyCallback {
     private static final int REQUEST_CODE = 100;
     private FusedLocationProviderClient fusedLocationClient;
     private GoogleMap mMap;
     private Marker userMarker = null;
+    private LocationCallback locationCallback;
 
     BottomSheetBehavior mBottomSheetBehavior;
     LocationRequest locationRequest;
@@ -92,7 +95,7 @@ public class NearMe extends Fragment implements OnMapReadyCallback {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        fusedLocationClient = LocationServices.getFusedLocationProviderClient(getContext());
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireContext());
 
         View bottomSheet = view.findViewById(R.id.bottom_sheet);
         ImageView myLocationBtn = view.findViewById(R.id.my_location_btn);
@@ -124,10 +127,15 @@ public class NearMe extends Fragment implements OnMapReadyCallback {
         checkLocationIsEnabled();
         getUserLocation();
         checkPermission();
-        fusedLocationClient.requestLocationUpdates(locationRequest, new LocationCallback() {
+
+        locationCallback = new LocationCallback() {
             @Override
             public void onLocationResult(@NonNull LocationResult locationResult) {
                 super.onLocationResult(locationResult);
+
+                if (getContext() == null) {
+                    return;
+                }
 
                 Location location = locationResult.getLastLocation();
                 LatLng pos = new LatLng(location.getLatitude(), location.getLongitude());
@@ -138,7 +146,8 @@ public class NearMe extends Fragment implements OnMapReadyCallback {
                 userMarker.setPosition(pos);
             }
 
-        }, Looper.myLooper());
+        };
+        fusedLocationClient.requestLocationUpdates(locationRequest, locationCallback, Looper.myLooper());
 
         getData();
 
@@ -183,8 +192,10 @@ public class NearMe extends Fragment implements OnMapReadyCallback {
     @Override
     public void onPause() {
         super.onPause();
-        fusedLocationClient.removeLocationUpdates(new LocationCallback() {
-        });
+
+        Log.d("hihi", String.valueOf(locationCallback));
+        if (locationCallback == null) return;
+        fusedLocationClient.removeLocationUpdates(locationCallback);
     }
 
     @Override
@@ -199,7 +210,7 @@ public class NearMe extends Fragment implements OnMapReadyCallback {
     private void getUserLocation() {
         checkPermission();
         fusedLocationClient.getLastLocation()
-                .addOnSuccessListener(getActivity(), new OnSuccessListener<Location>() {
+                .addOnSuccessListener(requireActivity(), new OnSuccessListener<Location>() {
                     @Override
                     public void onSuccess(Location location) {
                         // Got last known location. In some rare situations this can be null.
@@ -215,11 +226,11 @@ public class NearMe extends Fragment implements OnMapReadyCallback {
     }
 
     private void checkPermission() {
-        int permissionCheck = ContextCompat.checkSelfPermission(getContext(),
+        int permissionCheck = ContextCompat.checkSelfPermission(requireContext(),
                 Manifest.permission.ACCESS_FINE_LOCATION);
         if(permissionCheck != PackageManager.PERMISSION_GRANTED) {
             // ask permissions here using below code
-            ActivityCompat.requestPermissions(getActivity(),
+            ActivityCompat.requestPermissions(requireActivity(),
                     new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                     REQUEST_CODE);
         }
@@ -232,7 +243,7 @@ public class NearMe extends Fragment implements OnMapReadyCallback {
         builder.setAlwaysShow(true);
 
         Task<LocationSettingsResponse> result = LocationServices
-                .getSettingsClient(getActivity())
+                .getSettingsClient(requireActivity())
                 .checkLocationSettings(builder.build());
 
         result.addOnCompleteListener(new OnCompleteListener<LocationSettingsResponse>() {
@@ -271,6 +282,8 @@ public class NearMe extends Fragment implements OnMapReadyCallback {
     }
 
     private Marker addMarker(LatLng pos, String title, @DrawableRes int icon, int width, int height) {
+        if (getContext() == null) return null;
+
         Bitmap imageBitmap = BitmapFactory.decodeResource(getResources(), icon);
         return mMap.addMarker(new MarkerOptions()
                 .position(pos)
@@ -284,6 +297,8 @@ public class NearMe extends Fragment implements OnMapReadyCallback {
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (getContext() == null) return ;
+
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 Car car = document.toObject(Car.class);

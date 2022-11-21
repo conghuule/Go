@@ -58,13 +58,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         fm = getSupportFragmentManager();
 
-        switchFragment(new Home());
+//        switchFragment(new Home());
 
         auth = FirebaseAuth.getInstance();
 
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation);
-
-//        bottomNavigationView.setSelectedItemId(MANAGE);
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
@@ -89,23 +87,25 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        bottomNavigationView.setOnItemReselectedListener(new NavigationBarView.OnItemReselectedListener() {
+            @Override
+            public void onNavigationItemReselected(@NonNull MenuItem item) {
+
+            }
+        });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        switchFragment(new Home());
     }
 
     private void switchFragment(Fragment newFragment) {
         ft = fm.beginTransaction();
         ft.replace(R.id.content, newFragment);
-//        ft.addToBackStack(null);
         ft.commit();
-//
-//        fm.addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
-//            @Override
-//            public void onBackStackChanged() {
-//                // pop all the fragment and remove the listener
-//                fm.popBackStack(FRAGMENT_OTHER, 1);
-//                fm.removeOnBackStackChangedListener(this);
-//                // set the home button selected
-//                navigation.getMenu().getItem(0).setChecked(true);
-//            }
-//        });
     }
 }
