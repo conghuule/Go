@@ -52,8 +52,6 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        getResources().getColor(R.color.main_color);
-        getSupportActionBar().hide();
 
         auth = FirebaseAuth.getInstance();
 
