@@ -21,9 +21,9 @@ public class profileActivity extends Activity {
     private LinearLayout loginScreen;
     private LinearLayout editProfileScreen;
     private LinearLayout editPassScreen;
-    protected void onCreate(Bundle savedlnstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
 
-        super.onCreate(savedlnstanceState);
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
         btnBack = (ImageView) findViewById(R.id.btnBack);
