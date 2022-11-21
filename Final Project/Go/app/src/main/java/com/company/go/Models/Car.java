@@ -13,7 +13,7 @@ import java.util.Locale;
 public class Car implements Serializable {
     private String avatar;
     private HashMap<String, Object> location;
-    private Integer id;
+    private String id;
     private HashMap<String, Object> information;
     private Integer owner_id;
     private String plate_number;
@@ -37,7 +37,7 @@ public class Car implements Serializable {
         return registration_certificate;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 

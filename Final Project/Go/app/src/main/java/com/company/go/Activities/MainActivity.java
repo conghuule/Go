@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void switchFragment(Fragment newFragment) {
+    public void switchFragment(Fragment newFragment) {
         ft = fm.beginTransaction();
         ft.replace(R.id.content, newFragment);
 //        ft.addToBackStack(null);
