@@ -9,7 +9,7 @@ import com.company.go.Models.User;
 
 public class ReviewAdapter extends ArrayAdapter {
 
-    public ReviewAdapter(@NonNull Context context, int resource,  ) {
+    public ReviewAdapter(@NonNull Context context, int resource) {
         super(context, resource);
     }
 }
