@@ -118,7 +118,7 @@ public class Account extends Fragment {
 //                Log.d("Get class", String.valueOf(view.findViewById(R.id.btnBack)));
                 MainActivity mainActivity = (MainActivity) getActivity();
 
-                mainActivity.switchFragment(new EditProfile());
+                mainActivity.switchFragment(new EditProfile(),Boolean.TRUE);
 //                Intent myIntent_Profile2EditPro = new Intent(getActivity(), editProfileScreen.getClass());
 //                startActivity(myIntent_Profile2EditPro);
             }
@@ -131,7 +131,7 @@ public class Account extends Fragment {
 //                Intent myIntent_Profile2EditPass = new Intent(getActivity(), editPassScreen.getClass());
 //                startActivity(myIntent_Profile2EditPass);
                 MainActivity mainActivity = (MainActivity) getActivity();
-                mainActivity.switchFragment(new EditPassword());
+                mainActivity.switchFragment(new EditPassword(),Boolean.TRUE);
             }
         });
     }
