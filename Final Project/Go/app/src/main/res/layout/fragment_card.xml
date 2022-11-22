@@ -68,12 +68,26 @@
                         android:textColor="#ff26CBE1"
                         android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/address"
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Ho Chi Minh City"
-                        android:textColor="#ff26CBE1" />
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:layout_marginRight="4dp"
+                            android:src="@drawable/location" />
+
+                        <TextView
+                            android:id="@+id/address"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Ho Chi Minh City"
+                            android:textColor="#ff26CBE1" />
+
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -82,8 +96,8 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingHorizontal="15dp"
-                android:paddingVertical="10dp">
+                android:gravity="center"
+                android:paddingVertical="8dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -91,27 +105,80 @@
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true">
 
-                    <TextView
-                        android:id="@+id/capacity"
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingRight="15dp"
-                        android:text="5 Seats" />
+                        android:gravity="center_vertical">
 
-                    <TextView
-                        android:id="@+id/fuel_type"
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="4dp"
+                            android:fontFamily="@font/fontawesome"
+                            android:text="users"
+                            android:textColor="@color/main_color"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/capacity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="15dp"
+                            android:text="5 Seats" />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Electric" />
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginRight="4dp"
+                            android:fontFamily="@font/fontawesome"
+                            android:text="gas-pump"
+                            android:textColor="@color/main_color"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/fuel_type"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingRight="16dp"
+                            android:text="Electric" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/fontawesome"
+                            android:paddingRight="4dp"
+                            android:text="tint"
+                            android:textColor="@color/main_color"
+                            android:textSize="20dp" />
+
+                        <TextView
+                            android:id="@+id/color"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Red" />
+                    </LinearLayout>
                 </LinearLayout>
 
-                <Button
-                    android:id="@+id/go_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:text="Go!" />
             </RelativeLayout>
+
+            <Button
+                android:id="@+id/go_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="Go!" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

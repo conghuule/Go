@@ -21,12 +21,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp"
+                android:layout_marginHorizontal="10dp">
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:layout_marginRight="20dp"
                     android:src="@drawable/avatr" />
 
                 <LinearLayout
@@ -38,6 +40,8 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:id="@+id/fullname"
+                        android:textSize="20dp"
                         android:text="Tristian Nguyen"
                         android:textStyle="bold" />
 
@@ -49,10 +53,11 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
+                android:layout_marginHorizontal="10dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -62,9 +67,15 @@
                     android:background="@drawable/searchview_background"
                     android:iconifiedByDefault="false"
                     android:queryHint="Search"
-
                     />
-            </LinearLayout>
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/filter"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="25dp"/>
+            </RelativeLayout>
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -90,6 +101,7 @@
                         android:layout_weight="1"
                         android:gravity="left"
                         android:text="Brand"
+                        android:textSize="18dp"
                         android:textColor="#ff000000"
                         android:textStyle="bold" />
 
@@ -99,7 +111,8 @@
                         android:gravity="right"
                         android:paddingLeft="20dp"
                         android:text="See all"
-                        android:textColor="#ff000000"
+
+                        android:textColor="#ff26CBE1"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -163,6 +176,7 @@
                         android:layout_weight="1"
                         android:gravity="left"
                         android:text="Recommended"
+                        android:textSize="18dp"
                         android:textColor="#ff000000"
                         android:textStyle="bold" />
 
@@ -172,13 +186,13 @@
                         android:gravity="right"
                         android:paddingLeft="20dp"
                         android:text="See all"
-                        android:textColor="#ff000000"
+                        android:textColor="#ff26CBE1"
                         android:textStyle="bold" />
                 </LinearLayout>
 
                 <FrameLayout
                     android:id="@+id/testCard"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
 
                 <androidx.cardview.widget.CardView
@@ -192,93 +206,144 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="8dp"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:padding="16dp">
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
+                        <RelativeLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
+                            android:layout_alignParentTop="true"
 
-                            >
+                            android:layout_marginBottom="5dp">
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginRight="10dp"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
                                 android:orientation="vertical">
 
                                 <TextView
+                                    android:id="@+id/type"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Sedan"
-                                    android:textColor="#ffBDBDBD" />
+                                    android:layout_marginBottom="3dp"
+                                    android:text="Sedan" />
 
                                 <TextView
+                                    android:id="@+id/model"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginBottom="3dp"
                                     android:text="Tesla Model S"
                                     android:textColor="#ff26CBE1"
                                     android:textStyle="bold" />
 
                                 <TextView
+                                    android:id="@+id/brand"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginBottom="3dp"
                                     android:text="Tesla"
                                     android:textColor="#ffBDBDBD" />
 
                                 <TextView
+                                    android:id="@+id/price"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginBottom="3dp"
                                     android:text="$399/day"
                                     android:textColor="#ff26CBE1"
                                     android:textStyle="bold" />
 
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Ho Chi Minh City"
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content">
 
-                                    android:textColor="#ff26CBE1" />
+                                    <ImageView
+                                        android:layout_width="18dp"
+                                        android:layout_height="18dp"
+                                        android:src="@drawable/location" />
+
+                                    <TextView
+                                        android:id="@+id/address"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Ho Chi Minh City"
+
+                                        android:textColor="#ff26CBE1" />
+                                </LinearLayout>
                             </LinearLayout>
 
                             <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
+                                android:id="@+id/carImage"
+                                android:layout_width="200dp"
+                                android:layout_height="100dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
                                 android:src="@drawable/tesla_model_s" />
-                        </LinearLayout>
+                        </RelativeLayout>
 
-                        <LinearLayout
+                        <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center">
+                            android:layout_alignParentBottom="true">
 
-                            <TextView
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:paddingRight="15dp"
-                                android:text="5 Seats" />
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:gravity="center">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:paddingRight="15dp"
-                                android:text="Electric" />
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:paddingRight="15dp"
-                                android:text="Auto" />
+                                    <ImageView
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:layout_gravity="center"
+                                        android:src="@drawable/car_seat" />
+
+                                    <TextView
+                                        android:id="@+id/capacity"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:paddingLeft="5dp"
+                                        android:paddingRight="15dp"
+                                        android:text="5 Seats" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center">
+
+                                    <ImageView
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+
+                                        android:src="@drawable/fuel_logo" />
+
+                                    <TextView
+                                        android:id="@+id/fuel_type"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:paddingLeft="5dp"
+                                        android:paddingRight="15dp"
+                                        android:text="Electronic" />
+                                </LinearLayout>
+                            </LinearLayout>
 
                             <Button
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="50dp"
-                                android:layout_marginRight="20dp"
+                                android:layout_height="45dp"
+                                android:layout_alignParentEnd="true"
                                 android:text="Go!" />
-                        </LinearLayout>
+                        </RelativeLayout>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -301,6 +366,7 @@
                         android:layout_weight="1"
                         android:gravity="left"
                         android:text="Near by"
+                        android:textSize="18dp"
                         android:textColor="#ff000000"
                         android:textStyle="bold" />
 
@@ -310,7 +376,7 @@
                         android:gravity="right"
                         android:paddingLeft="20dp"
                         android:text="See all"
-                        android:textColor="#ff000000"
+                        android:textColor="#ff26CBE1"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -325,32 +391,32 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="8dp"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:padding="16dp">
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
+                        <RelativeLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-
-                            >
+                            android:layout_alignParentTop="true"
+                            android:layout_marginBottom="5dp">
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginRight="10dp"
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
                                 android:orientation="vertical">
 
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Sedan"
-                                    android:textColor="#ffBDBDBD" />
+                                    android:layout_marginBottom="3dp"
+                                    android:text="Sedan" />
 
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginBottom="3dp"
                                     android:text="Tesla Model S"
                                     android:textColor="#ff26CBE1"
                                     android:textStyle="bold" />
@@ -358,60 +424,102 @@
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginBottom="3dp"
                                     android:text="Tesla"
                                     android:textColor="#ffBDBDBD" />
 
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginBottom="3dp"
                                     android:text="$399/day"
                                     android:textColor="#ff26CBE1"
                                     android:textStyle="bold" />
 
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Ho Chi Minh City"
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content">
 
-                                    android:textColor="#ff26CBE1" />
+                                    <ImageView
+                                        android:layout_width="18dp"
+                                        android:layout_height="18dp"
+                                        android:src="@drawable/location" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Ho Chi Minh City"
+
+                                        android:textColor="#ff26CBE1" />
+                                </LinearLayout>
                             </LinearLayout>
 
                             <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
+                                android:layout_width="200dp"
+                                android:layout_height="100dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
                                 android:src="@drawable/tesla_model_s" />
-                        </LinearLayout>
+                        </RelativeLayout>
 
-                        <LinearLayout
+                        <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center">
+                            android:layout_alignParentBottom="true">
 
-                            <TextView
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:paddingRight="15dp"
-                                android:text="5 Seats" />
+                                android:layout_alignParentLeft="true"
+                                android:layout_centerVertical="true"
+                                android:gravity="center">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:paddingRight="15dp"
-                                android:text="Electric" />
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:paddingRight="15dp"
-                                android:text="Auto" />
+                                    <ImageView
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:layout_gravity="center"
+                                        android:src="@drawable/car_seat" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:paddingLeft="5dp"
+                                        android:paddingRight="15dp"
+                                        android:text="5 Seats" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center">
+
+                                    <ImageView
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+
+                                        android:src="@drawable/fuel_logo" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:paddingLeft="5dp"
+                                        android:paddingRight="15dp"
+                                        android:text="Electronic" />
+                                </LinearLayout>
+                            </LinearLayout>
 
                             <Button
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="50dp"
-                                android:layout_marginRight="20dp"
+                                android:layout_height="45dp"
+                                android:layout_alignParentEnd="true"
                                 android:text="Go!" />
-                        </LinearLayout>
+                        </RelativeLayout>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 

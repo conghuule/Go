@@ -51,6 +51,13 @@ public class Manage extends Fragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+
+        ((MainActivity) requireActivity()).setActiveTab(R.id.manage);
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {

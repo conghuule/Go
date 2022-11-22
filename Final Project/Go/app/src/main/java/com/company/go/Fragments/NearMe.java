@@ -27,6 +27,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.company.go.Activities.MainActivity;
 import com.company.go.Models.Car;
 import com.company.go.R;
 import com.google.android.gms.common.api.ApiException;
@@ -59,6 +60,7 @@ import com.google.firebase.firestore.GeoPoint;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.Locale;
 import java.util.Objects;
 
 public class NearMe extends Fragment implements OnMapReadyCallback {
@@ -73,6 +75,13 @@ public class NearMe extends Fragment implements OnMapReadyCallback {
     ActivityResultLauncher<IntentSenderRequest> resolutionForResult;
 
     FirebaseFirestore db;
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        ((MainActivity) requireActivity()).setActiveTab(R.id.nearme);
+    }//    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -308,7 +317,25 @@ public class NearMe extends Fragment implements OnMapReadyCallback {
 
                                 LatLng pos = new LatLng(address.getLatitude(), address.getLongitude());
 
-                                Marker carMarker = addMarker(pos, carModel, R.drawable.bmw_logo, 100, 100);
+                                String brand = car.getInformation().get("brand").toString();
+
+                                Integer brandIcon;
+                                switch (brand.toLowerCase(Locale.ROOT)) {
+//                                    case "":
+//                                        break;
+//                                    case "":
+//                                        break;
+//                                    case "":
+//                                        break;
+//                                    case "":
+//                                        break;
+//                                    case "":
+//                                        break;
+                                    default:
+                                        brandIcon = R.drawable.bmw_logo;
+                                }
+
+                                Marker carMarker = addMarker(pos, carModel, brandIcon, 100, 100);
                                 carMarker.setTag(document.getId());
                             }
                         } else {

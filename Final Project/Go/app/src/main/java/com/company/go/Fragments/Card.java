@@ -74,6 +74,7 @@ public class Card extends Fragment {
             TextView type = view.findViewById(R.id.type);
             TextView capacity = view.findViewById(R.id.capacity);
             TextView fuelType = view.findViewById(R.id.fuel_type);
+            TextView color = view.findViewById(R.id.color);
             ImageView imageView = view.findViewById(R.id.carImage);
 
             address.setText(car.getLocation().get("name").toString());
@@ -83,13 +84,16 @@ public class Card extends Fragment {
             brand.setText(car.getInformation().get("brand").toString());
             capacity.setText(car.getInformation().get("capacity").toString() + " Seats");
             fuelType.setText(car.getInformation().get("fuel_type").toString());
-            Picasso.get().load(car.getAvatar()).resize(175, 100).into(imageView);
+            color.setText(car.getInformation().get("color").toString());
+            Picasso.get().load(car.getAvatar()).fit().into(imageView);
         }
 
         goBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getActivity().startActivity(new Intent(getActivity(), DetailCar.class));
+                Intent intent = new Intent(getActivity(), DetailCar.class);
+                intent.putExtra("id", car.getId());
+                getActivity().startActivity(intent);
 
                 for (Fragment fragment : getActivity().getSupportFragmentManager().getFragments()) {
                     getActivity().getSupportFragmentManager()
@@ -97,7 +101,6 @@ public class Card extends Fragment {
                             .remove(fragment)
                             .commit();
                 }
-//                getActivity().finish();
             }
         });
     }

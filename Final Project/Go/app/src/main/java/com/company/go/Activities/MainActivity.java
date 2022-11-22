@@ -9,6 +9,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Context;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -29,8 +30,13 @@ public class MainActivity extends AppCompatActivity {
     public Integer NEAR_ME = R.id.nearme;
     public Integer ACCOUNT = R.id.account;
     public Integer MANAGE = R.id.manage;
-    private BottomNavigationView bottomNavigationView;
+    public BottomNavigationView bottomNavigationView;
+    public Integer activeTab = HOME;
     private FirebaseAuth auth;
+
+    Fragment contentFragment;
+
+
     FragmentManager fm;
     FragmentTransaction ft;
 
@@ -56,9 +62,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         fm = getSupportFragmentManager();
 
-//        switchFragment(new Home());
+        switchFragment(new Home(), false);
 
         auth = FirebaseAuth.getInstance();
 
@@ -67,22 +74,25 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                activeTab = item.getItemId();
+
                 switch (item.getItemId()) {
                     case R.id.home:
-                        switchFragment(new Home());
+                        contentFragment = new Home();
                         break;
                     case R.id.nearme:
-                        switchFragment(new NearMe());
+                        contentFragment = new NearMe();
                         break;
                     case R.id.account:
-                        switchFragment(new Account());
+                        contentFragment = new Account();
                         break;
                     case R.id.manage:
-                        switchFragment(new Manage());
+                        contentFragment = new Manage();
                         break;
                     default:
                         return false;
                 }
+                switchFragment(contentFragment, true);
 
                 return true;
             }
@@ -100,12 +110,40 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        switchFragment(new Home());
+        switch (activeTab) {
+            case R.id.home:
+                contentFragment = new Home();
+                break;
+            case R.id.nearme:
+                contentFragment = new NearMe();
+                break;
+            case R.id.account:
+                contentFragment = new Account();
+                break;
+            case R.id.manage:
+                contentFragment = new Manage();
+                break;
+            default:
+                return;
+        }
+        switchFragment(contentFragment, true);
     }
 
-    private void switchFragment(Fragment newFragment) {
+    private void switchFragment(Fragment newFragment, Boolean addToBackStack) {
         ft = fm.beginTransaction();
         ft.replace(R.id.content, newFragment);
+
+//        if (addToBackStack) {
+//            Log.d("hihihi", "hihihi");
+//            ft.addToBackStack(null);
+//        }
+
         ft.commit();
+    }
+
+    public void setActiveTab(Integer id) {
+        if (id != activeTab) {
+            bottomNavigationView.setSelectedItemId(id);
+        }
     }
 }

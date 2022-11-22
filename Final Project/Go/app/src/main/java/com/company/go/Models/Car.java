@@ -5,18 +5,20 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 
 public class Car implements Serializable {
     private String avatar;
     private HashMap<String, Object> location;
-    private Integer id;
+    private String id;
     private HashMap<String, Object> information;
     private Integer owner_id;
     private String plate_number;
     private Integer price;
     private HashMap<String, Object> registration_certificate;
     private String status;
+    private List<Object> reviews;
 
     public Car() {}
 
@@ -32,7 +34,7 @@ public class Car implements Serializable {
         return registration_certificate;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
@@ -64,5 +66,9 @@ public class Car implements Serializable {
         formatter.setDecimalFormatSymbols(symbols);
 
         return formatter.format(price.longValue());
+    }
+
+    public List<Object> getReviews() {
+        return reviews;
     }
 }
