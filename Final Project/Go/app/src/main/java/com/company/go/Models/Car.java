@@ -18,7 +18,7 @@ public class Car implements Serializable {
     private Integer price;
     private HashMap<String, Object> registration_certificate;
     private String status;
-    private List<Object> reviews;
+    private List<HashMap<String, Object>> reviews;
 
     public Car() {}
 
@@ -68,7 +68,7 @@ public class Car implements Serializable {
         return formatter.format(price.longValue());
     }
 
-    public List<Object> getReviews() {
+    public List<HashMap <String, Object>> getReviews() {
         return reviews;
     }
 }

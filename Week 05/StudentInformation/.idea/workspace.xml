@@ -15,29 +15,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f541e724-e644-480a-8664-e3f090dcd355" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../../Final Project/Go/app/src/debug/res/drawable/filter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/java/com/company/go/Adapters/ReviewAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/java/com/company/go/Models/Review.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/java/com/company/go/Models/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/res/drawable/car_seat.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/res/drawable/fuel_logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/res/drawable/location.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Final Project/Go/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../Final Project/Go/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/res/layout/adapter_review.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/java/com/company/go/Activities/DetailCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/java/com/company/go/Activities/DetailCar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/java/com/company/go/Activities/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/java/com/company/go/Activities/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/java/com/company/go/Fragments/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/java/com/company/go/Fragments/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/java/com/company/go/Fragments/ActionBar.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/java/com/company/go/Fragments/ActionBar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/java/com/company/go/Fragments/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/java/com/company/go/Fragments/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/java/com/company/go/Fragments/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/java/com/company/go/Fragments/Home.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/java/com/company/go/Fragments/Manage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/java/com/company/go/Fragments/Manage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/java/com/company/go/Fragments/NearMe.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/java/com/company/go/Fragments/NearMe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/java/com/company/go/Adapters/ReviewAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/java/com/company/go/Adapters/ReviewAdapter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/java/com/company/go/Models/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/java/com/company/go/Models/Car.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/res/layout/activity_detail_car.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/res/layout/activity_detail_car.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/res/layout/fragment_account.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/res/layout/fragment_account.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/res/layout/fragment_action_bar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/res/layout/fragment_action_bar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/java/com/company/go/Models/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/java/com/company/go/Models/Review.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/res/layout/fragment_card.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/res/layout/fragment_card.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/res/layout/fragment_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Final Project/Go/app/src/main/res/layout/fragment_home.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

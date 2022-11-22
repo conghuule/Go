@@ -138,7 +138,7 @@
                             android:layout_height="wrap_content"
                             android:paddingRight="10dp"
                             android:text="5 Seats"
-                            android:textSize="12dp" />
+                            android:textSize="10dp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -162,7 +162,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingRight="10dp"
-                            android:textSize="12dp"
+                            android:textSize="10dp"
                             android:text="Electric" />
                     </LinearLayout>
 
@@ -185,7 +185,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Red"
-                            android:textSize="12dp"/>
+                            android:textSize="10dp"/>
                     </LinearLayout>
                 </LinearLayout>
 

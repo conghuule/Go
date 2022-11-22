@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
@@ -12,7 +11,9 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.company.go.Adapters.ReviewAdapter;
 import com.company.go.Models.Car;
+import com.company.go.Models.Review;
 import com.company.go.R;
 import com.company.go.Utils.Helper;
 import com.company.go.Utils.PicassoTrustAll;
@@ -21,6 +22,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 public class DetailCar extends AppCompatActivity {
     private Car car;
     private FirebaseFirestore db;
@@ -28,6 +33,7 @@ public class DetailCar extends AppCompatActivity {
 
     TextView address, model, brand, price, type, capacity, fuelType, color;
     ImageView imageView, certImg;
+    ListView reviewList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,10 +51,7 @@ public class DetailCar extends AppCompatActivity {
             id = extras.getString("id");
         }
 
-        ListView reviewList = findViewById(R.id.review_list);
-        reviewList.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, listview_array));
-        Helper.getListViewSize(reviewList);
-
+        reviewList = findViewById(R.id.review_list);
         address = findViewById(R.id.address);
         model = findViewById(R.id.model);
         brand = findViewById(R.id.brand);
@@ -104,6 +107,49 @@ public class DetailCar extends AppCompatActivity {
             PicassoTrustAll.getInstance(getBaseContext())
                     .load(car.getAvatar())
                     .fit().into(imageView);
+
+            Review[] rvs = new Review[] {
+                    new Review("gghung205", "https://images.unsplash.com/photo-1624561172888-ac93c696e10c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTh8fHVzZXIlMjBwcm9maWxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60", "Nice car"),
+                    new Review("lachien111", "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60", "Okay"),
+            };
+
+//
+//            List<Review> reviewListData = new ArrayList<>();
+//            if (car.getReviews() == null) {
+//                return;
+//            }
+//            for (HashMap<String, Object> reviewData : car.getReviews()) {
+//                String userID = (String) reviewData.get("customer_id");
+//
+//                db.collection("customers").document(userID).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+//                        if (task.isSuccessful()) {
+//                            DocumentSnapshot document = task.getResult();
+//                            if (document.exists()) {
+//                                HashMap<String, Object> profile = (HashMap<String, Object>) document.get("profile");
+//                                String userName = (String) profile.get("username");
+//                                String userAvatar = (String) profile.get("profile_image");
+//
+//                                Review review = new Review(userName, userAvatar , (String) reviewData.get("review"));
+//
+//                                Log.d("hihi", review.getUserName());
+//                                reviewListData.add(review);
+//
+//
+//                            } else {
+//                                Log.d("TAG", "No such document");
+//                            }
+//                        } else {
+//                            Log.d("TAG", "get failed with ", task.getException());
+//                        }
+//                    }
+//                });
+//            }
+
+                ReviewAdapter reviewAdapter = new ReviewAdapter(this, R.layout.adapter_review, rvs);
+                reviewList.setAdapter(reviewAdapter);
+                Helper.getListViewSize(reviewList);
         }
     }
 
