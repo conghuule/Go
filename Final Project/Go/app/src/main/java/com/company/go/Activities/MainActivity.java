@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
         switchFragment(contentFragment, true);
     }
 
-    private void switchFragment(Fragment newFragment, Boolean addToBackStack) {
+    public void switchFragment(Fragment newFragment, Boolean addToBackStack) {
         ft = fm.beginTransaction();
         ft.replace(R.id.content, newFragment);
 

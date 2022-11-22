@@ -65,7 +65,7 @@ public class Car implements Serializable {
         symbols.setGroupingSeparator('.');
         formatter.setDecimalFormatSymbols(symbols);
 
-        return formatter.format(price.longValue());
+        return formatter.format(price.longValue()) + " đ";
     }
 
     public List<HashMap <String, Object>> getReviews() {
