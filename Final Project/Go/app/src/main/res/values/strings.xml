@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">Go</string>
-    <string name="Enter_your_First_Name">Enter your new First name</string>
-    <string name="Enter_your_Last_Name">Enter your new Last name</string>
-    <string name="Enter_your_Address">Enter your new Address</string>
-    <string name="Enter_your_Email">Enter your new Email</string>
-    <string name="Enter_your_Phone">Enter your new Phone</string>
-    <string name="Enter_your_Password">Enter your Password</string>
+    <string name="Enter_your_First_Name">Enter your new first name</string>
+    <string name="Enter_your_Last_Name">Enter your new last name</string>
+    <string name="Enter_your_Address">Enter your new address</string>
+    <string name="Enter_your_Email">Enter your new email</string>
+    <string name="Enter_your_Phone">Enter your new phone</string>
+    <string name="Enter_your_Password">Enter your password</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

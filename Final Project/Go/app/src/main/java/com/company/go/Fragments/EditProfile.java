@@ -2,20 +2,18 @@ package com.company.go.Fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.fragment.app.Fragment;
-
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.company.go.Activities.LoginActivity;
 import com.company.go.Activities.MainActivity;
@@ -27,19 +25,14 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.io.Serializable;
+import org.w3c.dom.Text;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Account #newInstance} factory method to
- * create an instance of this fragment.
- */
-public class Account extends Fragment {
+public class EditProfile extends Fragment {
     private FirebaseFirestore db;
     private FirebaseAuth auth;
 
-    public static Account newInstance() {
-        Account fragment = new Account();
+    public static com.company.go.Fragments.Account newInstance() {
+        com.company.go.Fragments.Account fragment = new com.company.go.Fragments.Account();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -49,19 +42,18 @@ public class Account extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         db = FirebaseFirestore.getInstance();
-        auth = FirebaseAuth.getInstance();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_account, container, false);
+        return inflater.inflate(R.layout.fragment_editprofile, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-//
+
 //        db.collection("cars")
 //                .document("207TlM6yP0CX3M0Fr03r")
 //                .get()
@@ -87,17 +79,20 @@ public class Account extends Fragment {
 //                });
 
         ImageView btnBack = view.findViewById(R.id.btnBack);
-        TextView btnLogout = view.findViewById(R.id.btnLogout);
-        LinearLayout btnEdit_Pro = view.findViewById(R.id.btnEditPro);
-        LinearLayout btnEdit_Pass = view.findViewById(R.id.btnEditPass);
-        ConstraintLayout mainScreen = view.findViewById(R.id.activity_main);
-        LinearLayout loginScreen = view.findViewById(R.id.activity_login);
-        FrameLayout editProfileScreen = view.findViewById(R.id.fragment_editPro);
-        LinearLayout editPassScreen = view.findViewById(R.id.fragment_editPass);
+        TextView btnLogout =view.findViewById(R.id.btnLogout);
+        de.hdodenhof.circleimageview.CircleImageView btnCamera =view.findViewById(R.id.btnCamera);
+        LinearLayout loginScreen =view.findViewById(R.id.activity_login);
+        ImageView btnCamera1 =view.findViewById(R.id.btnCamera1);
+        ImageView btnCamera2 =view.findViewById(R.id.btnCamera2);
+        ImageView btnCamera3 =view.findViewById(R.id.btnCamera3);
+        ImageView btnCamera4 =view.findViewById(R.id.btnCamera4);
+        TextView btnSave =view.findViewById(R.id.btnSave);
+        LinearLayout profileScreen=view.findViewById(R.id.fragment_account);
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+//                getActivity().onBackPressed();
                 Intent myIntent_Profile2Login = new Intent(getActivity(), MainActivity.class);
                 startActivity(myIntent_Profile2Login);
             }
@@ -112,26 +107,51 @@ public class Account extends Fragment {
             }
         });
 
-        btnEdit_Pro.setOnClickListener(new View.OnClickListener() {
+        btnCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Log.d("Get class", String.valueOf(view.findViewById(R.id.btnBack)));
-                MainActivity mainActivity = (MainActivity) getActivity();
-
-                mainActivity.switchFragment(new EditProfile());
-//                Intent myIntent_Profile2EditPro = new Intent(getActivity(), editProfileScreen.getClass());
-//                startActivity(myIntent_Profile2EditPro);
+                Intent i=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivity(i);
             }
         });
 
-        btnEdit_Pass.setOnClickListener(new View.OnClickListener() {
+        btnCamera1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Log.d("Get class", String.valueOf(view));
-//                Intent myIntent_Profile2EditPass = new Intent(getActivity(), editPassScreen.getClass());
-//                startActivity(myIntent_Profile2EditPass);
-                MainActivity mainActivity = (MainActivity) getActivity();
-                mainActivity.switchFragment(new EditPassword());
+                Intent i=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivity(i);
+            }
+        });
+
+        btnCamera2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivity(i);
+            }
+        });
+
+        btnCamera3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivity(i);
+            }
+        });
+
+        btnCamera4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivity(i);
+            }
+        });
+
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent_EditProfile32Profile = new Intent(getActivity(), profileScreen.getClass());
+                startActivity(myIntent_EditProfile32Profile);
             }
         });
     }

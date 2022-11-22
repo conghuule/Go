@@ -2,20 +2,18 @@ package com.company.go.Fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
-
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.company.go.Activities.LoginActivity;
 import com.company.go.Activities.MainActivity;
@@ -27,19 +25,18 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.io.Serializable;
-
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Account #newInstance} factory method to
+ * Use the {@link EditPassword #newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Account extends Fragment {
+public class EditPassword extends Fragment {
+
     private FirebaseFirestore db;
     private FirebaseAuth auth;
 
-    public static Account newInstance() {
-        Account fragment = new Account();
+    public static com.company.go.Fragments.Account newInstance() {
+        com.company.go.Fragments.Account fragment = new com.company.go.Fragments.Account();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -49,13 +46,12 @@ public class Account extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         db = FirebaseFirestore.getInstance();
-        auth = FirebaseAuth.getInstance();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_account, container, false);
+        return inflater.inflate(R.layout.fragment_editpassword, container, false);
     }
 
     @Override
@@ -86,14 +82,13 @@ public class Account extends Fragment {
 //                    }
 //                });
 
-        ImageView btnBack = view.findViewById(R.id.btnBack);
+
+        ImageView btnBack = (ImageView) view.findViewById(R.id.btnBack);
         TextView btnLogout = view.findViewById(R.id.btnLogout);
-        LinearLayout btnEdit_Pro = view.findViewById(R.id.btnEditPro);
-        LinearLayout btnEdit_Pass = view.findViewById(R.id.btnEditPass);
-        ConstraintLayout mainScreen = view.findViewById(R.id.activity_main);
+        LinearLayout btnSave = view.findViewById(R.id.btnSave);
+        ConstraintLayout mainScreen = view.findViewById(R.id.fragment_home);
         LinearLayout loginScreen = view.findViewById(R.id.activity_login);
-        FrameLayout editProfileScreen = view.findViewById(R.id.fragment_editPro);
-        LinearLayout editPassScreen = view.findViewById(R.id.fragment_editPass);
+        LinearLayout profileScreen = view.findViewById(R.id.fragment_account);
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,26 +107,11 @@ public class Account extends Fragment {
             }
         });
 
-        btnEdit_Pro.setOnClickListener(new View.OnClickListener() {
+        btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Log.d("Get class", String.valueOf(view.findViewById(R.id.btnBack)));
-                MainActivity mainActivity = (MainActivity) getActivity();
-
-                mainActivity.switchFragment(new EditProfile());
-//                Intent myIntent_Profile2EditPro = new Intent(getActivity(), editProfileScreen.getClass());
-//                startActivity(myIntent_Profile2EditPro);
-            }
-        });
-
-        btnEdit_Pass.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                Log.d("Get class", String.valueOf(view));
-//                Intent myIntent_Profile2EditPass = new Intent(getActivity(), editPassScreen.getClass());
-//                startActivity(myIntent_Profile2EditPass);
-                MainActivity mainActivity = (MainActivity) getActivity();
-                mainActivity.switchFragment(new EditPassword());
+                Intent myIntent_EditPassword2Profile = new Intent(getActivity(), profileScreen.getClass());
+                startActivity(myIntent_EditPassword2Profile);
             }
         });
     }
