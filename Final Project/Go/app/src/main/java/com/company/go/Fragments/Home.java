@@ -36,6 +36,13 @@ public class Home extends Fragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+
+        ((MainActivity) requireActivity()).setActiveTab(R.id.home);
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         db = FirebaseFirestore.getInstance();
@@ -58,6 +65,8 @@ public class Home extends Fragment {
                 .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (getContext() == null) return;
+
                         if (task.isSuccessful()) {
                             DocumentSnapshot document = task.getResult();
                             Car car = document.toObject(Car.class);
@@ -66,7 +75,7 @@ public class Home extends Fragment {
                                 getChildFragmentManager()
                                         .beginTransaction()
                                         .replace(R.id.testCard, card)
-                                        .commit();
+                                        .commitAllowingStateLoss();
                             } else {
                                 Log.d("Error", "No such document");
                             }

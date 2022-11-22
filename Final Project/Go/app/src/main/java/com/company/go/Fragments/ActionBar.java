@@ -23,8 +23,7 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class ActionBar extends Fragment {
 
-    private TextView title, action;
-    private ImageView backBtn;
+    private TextView title, action, backBtn;
     private String titleText;
     private String actionText;
 
@@ -54,7 +53,7 @@ public class ActionBar extends Fragment {
 
         title = (TextView) getView().findViewById(R.id.title);
         action = (TextView) getView().findViewById(R.id.action);
-        backBtn = (ImageView) getView().findViewById(R.id.back_btn);
+        backBtn = (TextView) getView().findViewById(R.id.back_btn);
 
         title.setText(titleText);
         action.setText(actionText);

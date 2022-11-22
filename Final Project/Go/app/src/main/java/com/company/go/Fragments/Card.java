@@ -29,7 +29,7 @@ import java.io.Serializable;
  * create an instance of this fragment.
  */
 public class Card extends Fragment {
-    private Car car;
+    private Car car = null;
 
     public Card() {
         // Required empty public constructor
@@ -37,9 +37,11 @@ public class Card extends Fragment {
 
     public static Card newInstance(Car car) {
         Card fragment = new Card();
+
         Bundle args = new Bundle();
         args.putSerializable("car", (Serializable) car);
         fragment.setArguments(args);
+
         return fragment;
     }
 
@@ -64,29 +66,41 @@ public class Card extends Fragment {
 
         Button goBtn = view.findViewById(R.id.go_btn);
 
-        TextView address = view.findViewById(R.id.address);
-        TextView model = view.findViewById(R.id.model);
-        TextView brand = view.findViewById(R.id.brand);
-        TextView price = view.findViewById(R.id.price);
-        TextView type = view.findViewById(R.id.type);
-        TextView capacity = view.findViewById(R.id.capacity);
-        TextView fuelType = view.findViewById(R.id.fuel_type);
-        ImageView imageView = view.findViewById(R.id.carImage);
+        if (car != null) {
+            TextView address = view.findViewById(R.id.address);
+            TextView model = view.findViewById(R.id.model);
+            TextView brand = view.findViewById(R.id.brand);
+            TextView price = view.findViewById(R.id.price);
+            TextView type = view.findViewById(R.id.type);
+            TextView capacity = view.findViewById(R.id.capacity);
+            TextView fuelType = view.findViewById(R.id.fuel_type);
+            TextView color = view.findViewById(R.id.color);
+            ImageView imageView = view.findViewById(R.id.carImage);
 
-        address.setText(car.getLocation().get("name").toString());
-        price.setText(car.getPriceFormat());
-        type.setText(car.getInformation().get("type").toString());
-        model.setText(car.getInformation().get("model").toString());
-        brand.setText( car.getInformation().get("brand").toString());
-        capacity.setText( car.getInformation().get("capacity").toString() + " Seats");
-        fuelType.setText( car.getInformation().get("fuel_type").toString());
-        Picasso.get().load(car.getAvatar()).resize(175, 100).into(imageView);
+            address.setText(car.getLocation().get("name").toString());
+            price.setText(car.getPriceFormat());
+            type.setText(car.getInformation().get("type").toString());
+            model.setText(car.getInformation().get("model").toString());
+            brand.setText(car.getInformation().get("brand").toString());
+            capacity.setText(car.getInformation().get("capacity").toString() + " Seats");
+            fuelType.setText(car.getInformation().get("fuel_type").toString());
+            color.setText(car.getInformation().get("color").toString());
+            Picasso.get().load(car.getAvatar()).fit().into(imageView);
+        }
 
         goBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getActivity().startActivity(new Intent(getActivity(), DetailCar.class));
-//                getActivity().finish();
+                Intent intent = new Intent(getActivity(), DetailCar.class);
+                intent.putExtra("id", car.getId());
+                getActivity().startActivity(intent);
+
+                for (Fragment fragment : getActivity().getSupportFragmentManager().getFragments()) {
+                    getActivity().getSupportFragmentManager()
+                            .beginTransaction()
+                            .remove(fragment)
+                            .commit();
+                }
             }
         });
     }

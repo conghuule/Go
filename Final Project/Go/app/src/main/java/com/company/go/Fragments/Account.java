@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.company.go.Activities.MainActivity;
 import com.company.go.R;
 
 /**
@@ -46,6 +47,13 @@ public class Account extends Fragment {
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        ((MainActivity) requireActivity()).setActiveTab(R.id.account);
     }
 
     @Override

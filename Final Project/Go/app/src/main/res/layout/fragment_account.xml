@@ -3,12 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragments.Account">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <fragment
+        android:id="@+id/action_bar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Account" />
+        android:layout_height="wrap_content"
+        android:name="com.company.go.Fragments.ActionBar"
+        tools:layout="@layout/fragment_action_bar"
+        app:title="Account settings"
+        app:action="sign-out-alt"/>
+
 
 </FrameLayout>
