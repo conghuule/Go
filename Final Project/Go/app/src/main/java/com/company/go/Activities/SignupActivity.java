@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Rect;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -21,16 +22,24 @@ import android.widget.Toast;
 import com.company.go.Fragments.InputLabel;
 import com.company.go.R;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class SignupActivity extends AppCompatActivity {
     private InputLabel nameInput, emailInput, passwordInput, confirmPasswordInput;
     private Button signupBtn;
     private FirebaseAuth auth;
+    private FirebaseFirestore db;
 
     //unfocused input when click outside
     @Override
@@ -56,6 +65,7 @@ public class SignupActivity extends AppCompatActivity {
         setContentView(R.layout.activity_signup);
 
         auth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
 
         nameInput = (InputLabel) getSupportFragmentManager().findFragmentById(R.id.name_input);
         emailInput = (InputLabel) getSupportFragmentManager().findFragmentById(R.id.email_input);
@@ -73,34 +83,54 @@ public class SignupActivity extends AppCompatActivity {
 
                 if (isValidForm(fullName, email, password, confirmPassword)) {
                     Log.d("Success", "Signup successfully");
-                    auth.createUserWithEmailAndPassword(email, password)
-                            .addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>() {
-                                @Override
-                                public void onComplete(@NonNull Task<AuthResult> task) {
-                                    if (task.isSuccessful()) {
-                                        FirebaseUser user = auth.getCurrentUser();
+                    auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                FirebaseUser user = auth.getCurrentUser();
 
-                                        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
-                                                .setDisplayName(fullName)
-                                                .build();
+                                UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                                        .setDisplayName(fullName)
+                                        .setPhotoUri(Uri.parse("https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y"))
+                                        .build();
 
-                                        user.updateProfile(profileUpdates)
-                                                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                    @Override
-                                                    public void onComplete(@NonNull Task<Void> task) {
-                                                        if (task.isSuccessful()) {
-                                                            Log.d(TAG, "User profile updated.");
+                                user.updateProfile(profileUpdates).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()) {
+                                            Log.d(TAG, "User profile updated.");
+                                            Map<String, Object> customer = new HashMap<>();
+                                            Map<String, Object> profile = new HashMap<>();
+                                            profile.put("username", fullName);
+                                            profile.put("profile_image", "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y");
+                                            customer.put("profile", profile);
+                                            Log.d("ahihi", String.valueOf(customer));
+                                            db.collection("customers").document(user.getUid()).set(customer)
+                                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                        @Override
+                                                        public void onSuccess(Void aVoid) {
+                                                            Log.d(TAG, "DocumentSnapshot successfully written!");
                                                         }
-                                                    }
-                                                });
-                                        startActivity(new Intent(SignupActivity.this, CompletedActivity.class));
-                                        finish();
-                                    } else {
-                                        Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                                        Toast.makeText(SignupActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                                                    })
+                                                    .addOnFailureListener(new OnFailureListener() {
+                                                        @Override
+                                                        public void onFailure(@NonNull Exception e) {
+                                                            Log.w(TAG, "Error writing document", e);
+                                                        }
+                                                    });
+                                        }
                                     }
-                                }
-                            });
+                                });
+
+
+                                startActivity(new Intent(SignupActivity.this, CompletedActivity.class));
+                                finish();
+                            } else {
+                                Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                                Toast.makeText(SignupActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
                 }
             }
         });

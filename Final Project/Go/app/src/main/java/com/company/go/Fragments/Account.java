@@ -1,6 +1,7 @@
 package com.company.go.Fragments;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -22,11 +23,13 @@ import com.company.go.Activities.LoginActivity;
 import com.company.go.Activities.MainActivity;
 import com.company.go.Models.Car;
 import com.company.go.R;
+import com.company.go.Utils.PicassoTrustAll;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.squareup.picasso.Picasso;
 
 import java.io.Serializable;
 
@@ -75,12 +78,18 @@ public class Account extends Fragment {
         TextView btnLogout = view.findViewById(R.id.btnLogout);
         LinearLayout btnEdit_Pro = view.findViewById(R.id.btnEditPro);
         LinearLayout btnEdit_Pass = view.findViewById(R.id.btnEditPass);
-        ConstraintLayout mainScreen = view.findViewById(R.id.activity_main);
-        LinearLayout loginScreen = view.findViewById(R.id.activity_login);
-        FrameLayout editProfileScreen = view.findViewById(R.id.fragment_editPro);
-        LinearLayout editPassScreen = view.findViewById(R.id.fragment_editPass);
+        TextView fullName = view.findViewById(R.id.full_name);
+        TextView phone = view.findViewById(R.id.phone);
+        TextView email = view.findViewById(R.id.email);
+        ImageView avatar = view.findViewById(R.id.account_avatar);
 
         username.setText(auth.getCurrentUser().getDisplayName());
+        PicassoTrustAll.getInstance(getActivity())
+                .load(auth.getCurrentUser().getPhotoUrl())
+                .fit().into(avatar);
+        fullName.setText(auth.getCurrentUser().getDisplayName());
+        phone.setText(auth.getCurrentUser().getPhoneNumber());
+        email.setText(auth.getCurrentUser().getEmail());
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,21 +111,15 @@ public class Account extends Fragment {
         btnEdit_Pro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Log.d("Get class", String.valueOf(view.findViewById(R.id.btnBack)));
                 MainActivity mainActivity = (MainActivity) getActivity();
 
                 mainActivity.switchFragment(new EditProfile(), true);
-//                Intent myIntent_Profile2EditPro = new Intent(getActivity(), editProfileScreen.getClass());
-//                startActivity(myIntent_Profile2EditPro);
             }
         });
 
         btnEdit_Pass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Log.d("Get class", String.valueOf(view));
-//                Intent myIntent_Profile2EditPass = new Intent(getActivity(), editPassScreen.getClass());
-//                startActivity(myIntent_Profile2EditPass);
                 MainActivity mainActivity = (MainActivity) getActivity();
                 mainActivity.switchFragment(new EditPassword(), true);
             }

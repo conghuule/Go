@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     public Integer activeTab = HOME;
     private FirebaseAuth auth;
 
-    Fragment contentFragment;
+    public Fragment contentFragment;
 
 
     FragmentManager fm;
@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
         fm = getSupportFragmentManager();
 
+        Log.d("ahihi", "HIHIH");
         switchFragment(new Home(), false);
 
         auth = FirebaseAuth.getInstance();
@@ -118,11 +119,7 @@ public class MainActivity extends AppCompatActivity {
                 contentFragment = new NearMe();
                 break;
             case R.id.account:
-                contentFragment = new Account();
-                break;
             case R.id.manage:
-                contentFragment = new Manage();
-                break;
             default:
                 return;
         }
@@ -134,7 +131,6 @@ public class MainActivity extends AppCompatActivity {
         ft.replace(R.id.content, newFragment);
 
 //        if (addToBackStack) {
-//            Log.d("hihihi", "hihihi");
 //            ft.addToBackStack(null);
 //        }
 

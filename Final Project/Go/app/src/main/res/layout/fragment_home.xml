@@ -30,7 +30,8 @@
                     android:layout_width="55dp"
                     android:layout_height="55dp"
                     android:layout_marginRight="20dp"
-                    android:src="@drawable/avatr" />
+                    android:src="@drawable/avatr"
+                    android:id="@+id/avatar"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -182,6 +183,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/view_list"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="right"
@@ -240,13 +242,14 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/view_list1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="right"
                         android:paddingLeft="20dp"
                         android:text="See all"
                         android:textColor="#ff26CBE1"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"/>
                 </LinearLayout>
 
                 <HorizontalScrollView
