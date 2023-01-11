@@ -54,7 +54,7 @@ public class Manage extends Fragment {
     public void onResume() {
         super.onResume();
 
-        ((MainActivity) requireActivity()).setActiveTab(R.id.manage);
+//        ((MainActivity) requireActivity()).setActiveTab(R.id.manage);
     }
 
     @Override

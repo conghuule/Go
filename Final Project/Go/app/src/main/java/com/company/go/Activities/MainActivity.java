@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     public Integer HOME = R.id.home;
     public Integer NEAR_ME = R.id.nearme;
     public Integer ACCOUNT = R.id.account;
-    public Integer MANAGE = R.id.manage;
+//    public Integer MANAGE = R.id.manage;
     public BottomNavigationView bottomNavigationView;
     public Integer activeTab = HOME;
     private FirebaseAuth auth;
@@ -87,9 +87,9 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.account:
                         contentFragment = new Account();
                         break;
-                    case R.id.manage:
-                        contentFragment = new Manage();
-                        break;
+//                    case R.id.manage:
+//                        contentFragment = new Manage();
+//                        break;
                     default:
                         return false;
                 }
@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
                 contentFragment = new NearMe();
                 break;
             case R.id.account:
-            case R.id.manage:
+//            case R.id.manage:
             default:
                 return;
         }

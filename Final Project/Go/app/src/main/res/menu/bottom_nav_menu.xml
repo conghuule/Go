@@ -10,10 +10,10 @@
         android:id="@+id/nearme"
         android:icon="@drawable/ic_baseline_near_me_24"
         android:title="Gần tôi" />
-    <item
-        android:id="@+id/manage"
-        android:icon="@drawable/ic_baseline_car_rental_24"
-        android:title="Quản lý" />
+<!--    <item-->
+<!--        android:id="@+id/manage"-->
+<!--        android:icon="@drawable/ic_baseline_car_rental_24"-->
+<!--        android:title="Quản lý" />-->
     <item
         android:id="@+id/account"
         android:icon="@drawable/ic_baseline_person_24"
